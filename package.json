@@ -9,14 +9,36 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.7",
+    "@headlessui/react": "^1.7.13",
+    "@polkadot/api": "^9.12.1",
+    "@polkadot/extension-dapp": "^0.44.8",
+    "@polkadot/extension-inject": "^0.44.8",
+    "@polkadot/ui-keyring": "^0.85.5",
+    "@subsocial/api": "^0.8.7-beta.2",
+    "@subsocial/utils": "^0.8.7-beta.2",
     "@types/node": "18.15.5",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
+    "framer-motion": "^8.5.4",
+    "graphql": "^16.6.0",
+    "moment": "^2.29.4",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.0.2"
+    "react-icons": "^4.7.1",
+    "react-intl": "^6.2.8",
+    "react-share": "^4.4.1",
+    "react-textarea-autosize": "^8.4.0",
+    "typescript": "5.0.2",
+    "validator": "^13.7.0",
+    "video-react": "^0.16.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7"
   }
 }

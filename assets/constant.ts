@@ -1,37 +1,40 @@
-import {AiOutlineHome, AiOutlineHistory, AiOutlineTwitter} from 'react-icons/ai'
+import {AiOutlineHome, AiOutlineHistory, AiOutlineTwitter, AiOutlineSetting, AiOutlinePlusCircle} from 'react-icons/ai'
 import {BsCollection} from 'react-icons/bs'
-import {MdOutlineVideoLibrary, MdOutlinePrivacyTip} from 'react-icons/md'
 import {FcAbout} from 'react-icons/fc'
+import{ MdOutlineExplore, MdOutlineVideoLibrary, MdOutlinePrivacyTip } from "react-icons/md"
+import {RiHomeLine} from 'react-icons/ri' 
+  import {CiUser} from 'react-icons/ci'
+  import {TbSettings} from 'react-icons/tb'
 export const navigations = [
     {
       title : "Home",
       to : "/",
-      icon : AiOutlineHome
+      icon :  RiHomeLine 
     },
     
-   /* {
-        title : "Subscribtions",
+   {
+        title : "Subscriptions",
         to : "/subscribtions",
-        icon : BsCollection
-      },*/
-
-      {
-        title : "Library",
-        to : "/library",
         icon : MdOutlineVideoLibrary
       },
 
-      {
-        title : "History",
-        to : "/history",
-        icon : AiOutlineHistory
-      },
+     /* {
+        title : "Library",
+        to : "/library",
+        icon : MdOutlineVideoLibrary
+      },*/
 
       {
+        title : "Explore",
+        to : "/explore",
+        icon : MdOutlineExplore
+      },
+
+     /* {
         title : "testing",
         to : "/test",
         icon : AiOutlineHistory
-      },   
+      },  */ 
 
 ]
 
@@ -39,19 +42,26 @@ export const mobileNavigations = [
   {
     title : "Home",
     to : "/",
-    icon : AiOutlineHome
+    icon : RiHomeLine
   },
 
   {
-    title : "Library",
-    to : "/library",
+    title : "New Video",
+    to : "/upload",
+    icon : AiOutlinePlusCircle  
+  },
+
+
+  {
+    title : "Subscriptions",
+    to : "/subscribtions",
     icon : MdOutlineVideoLibrary
   },
 
-  {
-    title : "History",
-    to : "/history",
-    icon : AiOutlineHistory
+ {
+    title : "Explore",
+    to : "/explore",
+    icon : MdOutlineExplore
   },
 ]
 
@@ -141,6 +151,22 @@ export const videoCategories = [
   },
 ]
 
+ export const profilePop = [
+  {
+    title : "Your Channel",
+     to : "/channel",
+     icon : CiUser
+  },
+
+  {
+    title : "Channel Setting",
+     to : "/settings",
+     icon : AiOutlineSetting
+  },
+
+
+ 
+ ]
 export const IPFS_GATEWAY = "https://ipfs.subsocial.network/ipfs/"
 export const SPACE_ID = 1080
 

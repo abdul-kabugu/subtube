@@ -1,4 +1,6 @@
 import { TopNav } from '@/components/navigations'
+import { MobileNav } from '@/components/navigations/mobilenav'
+import { Sidebar } from '@/components/navigations/sidebar'
 import { client } from '@/graphql/apolloClient'
 import '@/styles/globals.css'
 import { ApolloClient, ApolloProvider } from '@apollo/client'
@@ -9,7 +11,11 @@ export default function App({ Component, pageProps }: AppProps) {
     <ApolloProvider client={client}>
     <div>
        <TopNav  />
+       <div className='flex gap-3'>
+         <Sidebar  />
     <Component {...pageProps} />
+    </div>
+     <MobileNav  />
     </div>
     </ApolloProvider>
   ) 

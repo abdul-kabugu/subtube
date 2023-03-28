@@ -2,6 +2,7 @@
 import { client } from '@/graphql/apolloClient'
 import { GET_ACCOUNT_DEARCH_QUERY } from '@/graphql/fragments/accountSearchQuery'
 import { SEARCH_VIDEO_QUERY } from '@/graphql/fragments/videoSearchQuery'
+
 import {useState, useEffect} from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import ChannelQuery from './ChannelQuery'
@@ -83,7 +84,7 @@ const [isSearchDataError, setisSearchDataError] = useState()
     <div className='xs:hidden md:flex md:w-[330px] lg:w-[420px] border border-gray-200 rounded-md flex items-center gap-2 justify-between px-2'>
         <input  type="text"  value={searchQuery} onChange ={e => setsearchQuery(e.target.value)}
           placeholder="Search videos or channels"
-          className='xs:hidden md:block md:w-[330px] lg:w-[420px] py-1 px-3 rounded-md focus:outline-none '
+          className='xs:hidden md:block md:w-[330px] lg:w-[420px] py-1 px-3 rounded-md focus:outline-none bg-inherit '
         />
         <AiOutlineSearch  className="text-gray-600" size={20} />
 

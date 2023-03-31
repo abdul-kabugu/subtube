@@ -30,7 +30,7 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
    console.log("the video", video)
   return (
 
-    <div className='xs:w-96 sm:w-[300px] md:w-[270px] lg:w-[220px] xl:w-[253px] xs:h-[240px]  sm:h-[230px] md:h-[220px] lg:h-[235px] rounded-lg  flex-grow flex-shrink mb-2 py-1 px-1 ' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
+    <div className='xs:w-96 sm:w-[300px] md:w-[270px] lg:w-[220px] xl:w-[253px] xs:h-[240px]  sm:h-[230px] md:h-[220px] lg:h-[235px] rounded-lg  flex-grow flex-shrink mb-2 py-1 px-1 max-w-[400px] ' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
        <div className='w-[100%] xs:h-[190px] sm:h-[177px] md:h-[170px]'>
         <Link href={`/watch/${video?.id}`}>
            <img  src={`${IPFS_GATEWAY}${video?.image}`}   alt="video cover" className='w-[100%] h-[100%] object-cover rounded-lg '  />

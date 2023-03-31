@@ -3,12 +3,14 @@ import { MobileNav } from '@/components/navigations/mobilenav'
 import { Sidebar } from '@/components/navigations/sidebar'
 import { client } from '@/graphql/apolloClient'
 import '@/styles/globals.css'
+import { SubsocialContextProvider } from '@/subsocial/provider'
 import { ApolloClient, ApolloProvider } from '@apollo/client'
 import type { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
+      <SubsocialContextProvider>
     <div>
        <TopNav  />
        <div className='flex gap-3'>
@@ -17,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
     </div>
      <MobileNav  />
     </div>
+    </SubsocialContextProvider>
     </ApolloProvider>
   ) 
 }

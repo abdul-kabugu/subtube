@@ -10,11 +10,12 @@ import useGetPostComments from "./useGetPostComments";
 import { useGetUserData } from "./useGetUserData";
 import { useGetVideoById } from "./useGetVideoById";
 import useReactions from "./useLikePost";
+import { usePinToIpfs } from "./usePinToIpfs";
 import { UseSubscribe } from "./useSubscribe";
 import useTruncateText from "./useTruncateText";
 
 export {
     useAuthenticate, useTruncateText, useCreateSpace, useCreatePost, useDiscoverVideos,
     useGetVideoById, useGetPostComments, useCreateComment, useReactions, UseSubscribe,
-    useGetUserData, useAmplify, useCreateProfile, useDonate
+    useGetUserData, useAmplify, useCreateProfile, useDonate, usePinToIpfs
 }

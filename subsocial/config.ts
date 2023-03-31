@@ -1,3 +1,5 @@
+
+
 export interface CustomNetwork {
   substrateNodeUrl: string
   ipfsNodeUrl: string

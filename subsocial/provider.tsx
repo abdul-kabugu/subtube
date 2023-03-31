@@ -1,3 +1,4 @@
+
 import React, { createContext, useEffect, useState, useCallback } from 'react'
 
 import { SubsocialApi } from '@subsocial/api'
@@ -53,7 +54,7 @@ const setStoredNetwork = (network: CustomNetwork) => {
   }
 }
 
-const getStoredNetwork = () => {
+  export const getStoredNetwork = () => {
   if(typeof window !== 'undefined'){
   const networkName = localStorage.getItem(SUBSOCIAL_NETWORK_NAME_KEY)
   switch (networkName) {
@@ -141,3 +142,4 @@ export const SubsocialContextProvider = ({
     </SubsocialContext.Provider>
   )
 }
+

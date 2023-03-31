@@ -14,7 +14,7 @@ export default function ConnectedProfile() {
    const [isShowSignInModal, setisShowSignInModal] = useState(false)
     const [currentUserProfile, setcurrentUserProfile] = useState()
     const [testCond, settestCond] = useState(true)
-    const [isShowProfilePop, setisShowProfilePop] = useState(true)
+    const [isShowProfilePop, setisShowProfilePop] = useState(false)
    const {connectWallet, userWallets, isNoExtension} = useAuthenticate()
 const {shortenTxt} = useTruncateText()
    const handleSaveLogins =(userDetails) => {
@@ -84,7 +84,7 @@ const {shortenTxt} = useTruncateText()
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
 
-                  className='absolute w-[210px] top-11 rounded-lg border border-gray-200 py-2 px-3'
+                  className='absolute w-[210px] top-11 rounded-lg border border-gray-200 py-2 px-3 z-10 bg-white'
                   >
 
                <div className=''>
@@ -119,7 +119,7 @@ const {shortenTxt} = useTruncateText()
 }
   return (
     <div>
-      {currentUserProfile && isAuthenticated ? (
+      {currentUserProfile ?(
         <ConnectedUser  />
       ): 
          <button className='bg-violet-800 py-1.5 px-4 rounded-xl text-white font-semibold capitalize' onClick={handleConnectWallet}>connect wallet</button>

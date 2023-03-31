@@ -12,9 +12,20 @@ export default function Home() {
     <>
       <Head>
         <title>Home</title>
-        <meta name="description" content="FrentUbe - Decentralized video-sharing platform " />
+        <meta name="description" content="Frentube - Decentralized video-sharing platform " />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+
+          {/* Twitter */}
+<meta name="twitter:card" content={`FrenTube - Decentralized video-sharing platform on subsocial`} key="twcard" />
+<meta name="twitter:creator" content={`FrenTube`} key="twhandle" />
+
+{/* Open Graph */}
+<meta property="og:url" content={`/`} key="ogurl" />
+<meta property="og:image" content={`/img/cover.png`} key="ogimage" />
+<meta property="og:site_name" content={`Poltube -  Decentralized video shring platform`} key="ogsitename" />
+<meta property="og:title" content={`Decentralized video-shring platform `} key="ogtitle" />
+<meta property="og:description" content={`FrenTube - Decentralized video-shring platform on subsocial`} key="ogdesc" />
       </Head>
       <main>
         <div className="h-[200vh]">

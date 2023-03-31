@@ -5,9 +5,9 @@ import Search from './Search'
 
 export default function TopNav() {
   return (
-    <div className='flex justify-between h-[60px] items-center   px-4 py-2 z-20 bg-white sticky top-0'>
+    <div className='flex justify-between h-[60px] items-center   px-4 py-2 z-20 bg-white sticky top-1'>
        <div>
-       <h1 className='font-semibold leading-7'>FrenTube</h1>
+       <h1 className='font-semibold '>FrenTube</h1>
     </div> 
 
     <div>

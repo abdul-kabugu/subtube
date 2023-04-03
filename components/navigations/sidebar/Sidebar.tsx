@@ -8,9 +8,10 @@ import {RiHomeLine} from 'react-icons/ri'
 export default function Sidebar() {
   const [isExanded, setIsExapended] = useState(false)
   return (
-    <div className={`${isExanded ? "w-[170px] mr-20" : "w-[90px] mr-2 pr-6"} xs:hidden md:block  bg-white z-20`}>
-    <div className={`h-[92vh] ${isExanded ? "w-[170px]" : "w-[90px]" }  fixed flex flex-col duration-700 ease-in-out  px-2`}>
-        
+    <div className={`${isExanded ? "w-[190px] " : "w-[90px] "} xs:hidden md:block  z-10 `}>
+
+    <div className={`h-[92vh] bg-white  fixed flex flex-col duration-700 ease-in-out  px-2`}>
+
          {navigations.map((nav, i) => {
           return(
              

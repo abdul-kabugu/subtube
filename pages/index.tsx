@@ -28,7 +28,7 @@ export default function Home() {
 <meta property="og:description" content={`FrenTube - Decentralized video-shring platform on subsocial`} key="ogdesc" />
       </Head>
       <main>
-        <div className="h-[200vh]">
+        <div className="">
          <HomeView  />
         </div>
       </main>

@@ -30,7 +30,7 @@ export default function HomeView() {
     )
    }
   return (
-    <div className='flex gap-3 flex-wrap items-center justify-center ml-4'>
+    <div className='flex gap-3 flex-wrap items-center justify-center ml-6'>
       {filteredPosts?.map((video, i) =>  {
 
         return(

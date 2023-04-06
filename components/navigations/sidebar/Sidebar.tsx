@@ -10,7 +10,7 @@ export default function Sidebar() {
   return (
     <div className={`${isExanded ? "w-[190px] " : "w-[90px] "} xs:hidden md:block  z-10 `}>
 
-    <div className={`h-[92vh] bg-white  fixed flex flex-col duration-700 ease-in-out  px-2`}>
+    <div className={`h-[92vh] bg-white  fixed flex flex-col duration-700 ease-in-out  px-1`}>
 
          {navigations.map((nav, i) => {
           return(

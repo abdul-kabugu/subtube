@@ -21,7 +21,7 @@ export default function ChannelQuery({data, loading, error}) {
           data?.accounts?.map((account, i ) =>  {
 
             return(
-              <Link href={`/channels/${account.id}`} key={i}>
+              <Link href={`/channel/${account.id}`} key={i}>
               <div className='flex items-center justify-between mb-2'>
                  <h2 className='font-semibold capitalize text-black/70'>{account?.profileSpace?.name}</h2>
                  <div className='flex items-center'>

@@ -11,11 +11,13 @@ import {IpfsContent, OptionBool} from '@subsocial/api/substrate/wrappers'
    const {api, isReady} = useContext(SubsocialContext)
    const CONNECTED_USER_DETAILS = JSON.parse(localStorage.getItem('poltubeUserDetails'));
    console.log("connected user details", CONNECTED_USER_DETAILS)
-     const amplifyPost  =  async (parentId) =>  {
+     const amplifyPost  =  async (parentId, video) =>  {
         setisAmplifying(true)
        // Creating new sharedPostCid having shared message.
      const sharedPostCid = await await api!.ipfs.saveContent({
-    body: 'I Like  this  post',
+    body: video?.postById?.body,
+    image : video?.postById?.image,
+    title : video?.postById?.title,
      appId : "poltube_v3"
   })
   const substrateApi = await api!.blockchain.api

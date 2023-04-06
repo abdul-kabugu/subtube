@@ -17,6 +17,8 @@ export default function FullVideoCardFooter({video}) {
          setisShowShareToSocial(!isShowShareToSocial)
       }
 
+       console.log("from footer", video)
+
   return (
     <div className='mt-3 lg:px-6'>
       <div className='flex xs:gap-2 gap-4'>
@@ -30,7 +32,7 @@ export default function FullVideoCardFooter({video}) {
              <button>      Dislike {video?.postById?.downvotesCount && video?.postById?.downvotesCount}</button>
         </div>
 
-        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200' onClick={() => amplifyPost(video?.postById?.id)}>
+        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200' onClick={() => amplifyPost(video?.postById?.id, video)}>
             <AiOutlineRetweet size={17} />
              <button> Amplify</button>
         </div>

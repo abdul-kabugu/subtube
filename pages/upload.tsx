@@ -4,7 +4,7 @@ import { SelectFile, UploadForm } from '@/components/upload'
 import Head from 'next/head'
 import {useState} from 'react'
 
-export default function upload() {
+export default function Upload() {
     const [selectedVideo, setselectedVideo] = useState()
     const [selectedTumbnail, setselectedTumbnail] = useState()
     const [videoTitle, setvideoTitle] = useState("")

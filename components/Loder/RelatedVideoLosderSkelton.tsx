@@ -7,7 +7,7 @@ export default function RelatedVideoLosderSkelton() {
         {fakeArrayTwo.map((item, i) =>  {
 
             return(
-                <div className="flex   animate-pulse gap-2 mb-3 items-center ">
+                <div className="flex   animate-pulse gap-2 mb-3 items-center " key={i}>
                 <div className='w-[150px] h-[90px] rounded-md bg-gray-300'></div>
                   <div>
                      <div className='w-[120px] h-[8px] bg-gray-300 rounded-lg mb-3'></div>

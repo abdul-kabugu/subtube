@@ -8,7 +8,7 @@ export default function VideoCardSkeleton() {
 
           return(
            
-            <div className="flex flex-col  animate-pulse  h-full justify-center flex-grow-2 flex-shrink">
+            <div className="flex flex-col  animate-pulse  h-full justify-center flex-grow-2 flex-shrink" key={i}>
             <div className="  xs:w-screen sm:w-[320px] md:w-[270px] h-[170px] bg-gray-300  rounded-lg mb-1 ">
               </div>
 

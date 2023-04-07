@@ -15,7 +15,7 @@ export default function Sidebar() {
          {navigations.map((nav, i) => {
           return(
              
-              <Link href={nav.to}>
+              <Link href={nav.to} key={i}>
                 <div className={`${! isExanded && "w-[65px]  rounded-full" } px-3 mb-6 flex items-center gap-3 hover:bg-gray-200 py-2  rounded-lg `}>
                   <nav.icon className="text-gray-700" size={28}/>
                    <h3 className={`${ !isExanded ? "hidden" : "block" } font-semibold text-gray-600 `}>{nav.title}</h3>

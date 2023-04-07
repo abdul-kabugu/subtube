@@ -11,6 +11,12 @@ export default function Banner({data, loading, error}) {
         size: 120, // adjust the size of the avatar as per your requirement
         format: 'svg' // choose the format of the avatar, such as png or svg
       }).toString()
+
+        if(loading) {
+          return(
+            <h1>Loading</h1>
+          )
+        }
   return (
     <div className='xs:w-[100vw] md:w-[92vw] '>
         <div className='  w-[100%] h-60 bg-[url(/img/header_banner.png)] bg-cover'></div>

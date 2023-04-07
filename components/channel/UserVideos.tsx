@@ -10,12 +10,19 @@ import Videos from './Videos'
 import classNames from 'classnames';
 import { useGetUserData } from '@/Hooks'
 import { useRouter } from 'next/router'
+import VideoCardSkeleton from '../Loder/VideoCardSkeleton'
 
 export default function UserVideos() {
     const router = useRouter()
     const channelId =  router.query.channelId
     const {userData, isUserDataLoading, isUserDataError} = useGetUserData(channelId)
     console.log("the user data", userData)
+
+      if(isUserDataLoading){
+        return(
+          <VideoCardSkeleton   />
+        )
+      }
   return (
     <div className='mt-5 px-6 '>
         <div>

@@ -44,7 +44,7 @@ export default function WatchMain({vidId}) {
     <div className='flex  gap-2    md:px-0 '>
       <div className=' w-full'>
       <FullVideoCard video={data}  />
-       <div className='mt-2 md:px-3'>
+       <div className='mt-2 xs:px-2 md:px-3'>
          <h1 className='leading-10 text-xl capitalize text-black/80 font-semibold'>{data?.postById?.title}</h1>
 
           <div className='mt-1 flex justify-between  items-center'>
@@ -53,7 +53,7 @@ export default function WatchMain({vidId}) {
               <img    src={`data:image/svg+xml;base64,${avatar}`} className=" xs:w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] rounded-full" />
               </Link>
                 <div>
-                <Link href={`/channels/${data?.postById?.createdByAccount?.id}`}> <h1 className='md:text-lg text-black/90 font-semibold md:leading-9 '>{ data?.postById?.createdByAccount.profileSpace?.name ||  data?.postById?.createdByAccount && shortenTxt(data?.postById?.createdByAccount?.id, 10)}</h1> </Link>
+                <Link href={`/channel/${data?.postById?.createdByAccount?.id}`}> <h1 className='md:text-lg text-black/90 font-semibold md:leading-9 '>{ data?.postById?.createdByAccount.profileSpace?.name ||  data?.postById?.createdByAccount && shortenTxt(data?.postById?.createdByAccount?.id, 10)}</h1> </Link>
 
                   <h3 className='text-black/75 xs:text-sm'>{data?.postById?.createdByAccount?.followersCount} Subscribers</h3>
                 </div>

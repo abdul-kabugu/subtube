@@ -7,7 +7,7 @@ import 'video-react/dist/video-react.css';
 
 export default function FullVideoCard({video}) {
   return (
-    <div className='xs:w-[100vw]  md:w-[80vw] lg:w-[90vw] xl:w-[70vw]  z-0 flex  flex-grow flex-shrink'>
+    <div className='xs:w-full sm:w-full md:w-[80vw] lg:w-[90vw] xl:w-[70vw]  z-0 flex  flex-grow flex-shrink'>
 
               <Player 
       src={`${IPFS_GATEWAY_TWO}${video?.postById?.body}`   }

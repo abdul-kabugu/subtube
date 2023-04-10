@@ -27,7 +27,7 @@ export default function channelId({data, userId, loading, error}) {
 <meta property="og:title" content= {data?.accountById?.profileSpace.name  || data?.accountById?.profileSpace.handle || data?.accountById?.profileSpace.username || "FrenTube" } key="ogtitle" />
 <meta property="og:description" content={"Poltube -  Decentralized video  sharing platform"} key="ogdesc" />
      </Head>
-    <div>
+    <div className='min-w-full '>
        <Banner data = {data} loading = {loading}  error = {error} />  
        <UserVideos channelId = {channelId} /> 
     </div>

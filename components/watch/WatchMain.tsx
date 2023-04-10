@@ -41,7 +41,7 @@ export default function WatchMain({vidId}) {
       )
      }
   return (
-    <div className='flex  gap-2  '>
+    <div className='flex  gap-2 max-w-full   '>
       <div>
       <FullVideoCard video={data}  />
        <div className='mt-2 px-3'>

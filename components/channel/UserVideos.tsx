@@ -24,7 +24,7 @@ export default function UserVideos() {
         )
       }
   return (
-    <div className='mt-5 px-6 '>
+    <div className='mt-5  w-fit'>
         <div>
             <Tab.Group>
                 <Tab.List className={`flex space-x-1 gap-6 `}> 

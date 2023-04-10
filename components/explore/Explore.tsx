@@ -32,7 +32,7 @@ export default function Explore() {
      }
   return (
     <div>
-        <div className="flex gap-4" >
+        <div className="flex gap-3 w-fit" >
             <div className={`flex gap-1 items-center cursor-pointer px-5 ${currentTab === 0 && "border-b-2 border-violet-600"}`} onClick={() => setcurrentTab(0)}>
                 <AiOutlineFire size={18}  />
                  <button className='font-semibold leading-10 text-lg text-black/70'>Trending</button>
@@ -57,6 +57,7 @@ export default function Explore() {
         <div className='mt-5'>
             {getCurrentTab()}
         </div>
-    </div>
+        </div>
+    
   )
 }

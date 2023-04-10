@@ -30,10 +30,10 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
    console.log("the video", video)
   return (
 
-    <div className='xs:w-96 sm:w-[300px] md:w-[270px] lg:w-[220px] xl:w-[253px] xs:h-[240px]  sm:h-[230px] md:h-[220px] lg:h-[235px] rounded-lg  flex-grow flex-shrink mb-2 py-1 px-1 max-w-[350px] ' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
-       <div className='w-[100%] xs:h-[190px] sm:h-[177px] md:h-[170px]'>
+    <div className='xs:w-full md:w-[300px]  rounded-lg  flex-grow flex-shrink mb-2 py-1 px-1 md:max-w-[360px] ' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
+       <div className='  w-full xs:h-[220px] sm:h-[290px] md:h-[170px]'>
         <Link href={`/watch/${video?.id}`}>
-           <img  src={`${IPFS_GATEWAY}${video?.image}` || `${IPFS_GATEWAY_TWO}${video?.image}`}   alt="video cover" className='w-[100%] h-[100%] object-cover rounded-lg '  />
+           <img  src={`${IPFS_GATEWAY}${video?.image}` || `${IPFS_GATEWAY_TWO}${video?.image}`}   alt="video cover" className='w-full h-[100%] object-cover rounded-lg '  />
         </Link> 
         </div>
 

@@ -25,11 +25,11 @@ export default function videoId({data, vidId, loading, error}) {
 <meta property="og:title" content={data?.postById?.title} key="ogtitle" />
 <meta property="og:description" content={data?.postById?.title} key="ogdesc" />
         </Head>
-     <main>
-    <div className=''>
+     
+    <div className=' bg-blue-600'>
       <WatchMain  vidId={vidId} />
     </div>
-    </main>
+    
     </>
   )
 }

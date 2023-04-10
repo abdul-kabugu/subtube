@@ -18,8 +18,8 @@ export default function Banner({data, loading, error}) {
           )
         }
   return (
-    <div className='xs:w-[100vw] md:w-[92vw] '>
-        <div className='  w-[100%] h-60 bg-[url(/img/header_banner.png)] bg-cover'></div>
+    <div className='w-full '>
+        <div className='  w-full h-60 bg-[url(/img/header_banner.png)] bg-cover'></div>
 
          <div className='mt-4 flex justify-between items-start px-4'>
 

@@ -11,9 +11,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
       <SubsocialContextProvider>
-    <div>
+    <div className='w-full'>
        <TopNav  />
-       <div className='flex gap-3'>
+       <div className='flex gap-3 w-full'>
          <Sidebar  />
     <Component {...pageProps} />
     </div>

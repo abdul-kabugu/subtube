@@ -35,7 +35,7 @@ export default function VideoComments({ video}) {
         <input   value={commentTxt} onChange={e => setcommentTxt(e.target.value)}  placeholder="I like this video"
           className='w-[85%] focus:outline-none py-1'
         />
-        <AiOutlineSend  className={`xs:w-7 xs:h-7 md:w-10 md:h-10 text-black/80 ${isCommenting && "text-gray-600"} `} onClick={() => commentToPost(commentTxt, video?.postById?.id)} />
+        <AiOutlineSend  className={`xs:w-7 xs:h-7 md:w-9 md:h-9 cursor-pointer text-black/80 ${isCommenting && "text-gray-600"} `} onClick={() => commentToPost(commentTxt, video?.postById?.id)} />
 
       </div>
               </div>

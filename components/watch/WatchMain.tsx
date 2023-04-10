@@ -41,25 +41,25 @@ export default function WatchMain({vidId}) {
       )
      }
   return (
-    <div className='flex  gap-2 max-w-full   '>
-      <div>
+    <div className='flex  gap-2   xs:px-1 md:px-0 '>
+      <div className=' w-full'>
       <FullVideoCard video={data}  />
-       <div className='mt-2 px-3'>
+       <div className='mt-2 md:px-3'>
          <h1 className='leading-10 text-xl capitalize text-black/80 font-semibold'>{data?.postById?.title}</h1>
 
           <div className='mt-1 flex justify-between  items-center'>
             <div className='flex gap-3'>
              <Link href={`/channel/${data?.postById?.createdByAccount?.id }`}>
-              <img    src={`data:image/svg+xml;base64,${avatar}`} className="w-[50px] h-[50px] rounded-full" />
+              <img    src={`data:image/svg+xml;base64,${avatar}`} className=" xs:w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] rounded-full" />
               </Link>
                 <div>
-                <Link href={`/channels/${data?.postById?.createdByAccount?.id}`}> <h1 className='text-lg text-black/90 font-semibold leading-9 '>{ data?.postById?.createdByAccount.profileSpace?.name ||  data?.postById?.createdByAccount && shortenTxt(data?.postById?.createdByAccount?.id, 10)}</h1> </Link>
+                <Link href={`/channels/${data?.postById?.createdByAccount?.id}`}> <h1 className='md:text-lg text-black/90 font-semibold md:leading-9 '>{ data?.postById?.createdByAccount.profileSpace?.name ||  data?.postById?.createdByAccount && shortenTxt(data?.postById?.createdByAccount?.id, 10)}</h1> </Link>
 
-                  <h3 className='text-black/75'>{data?.postById?.createdByAccount?.followersCount} Subscribers</h3>
+                  <h3 className='text-black/75 xs:text-sm'>{data?.postById?.createdByAccount?.followersCount} Subscribers</h3>
                 </div>
               </div>
 
-               <button className='font-semibold text-lg bg-violet-700 text-white px-4 py-1.5 rounded-lg'>Subscribe</button>
+               <button className=' md:font-semibold md:text-lg bg-violet-700 text-white xs:px-2 xs:py-1 md:px-4 md:py-1.5 rounded-lg'>Subscribe</button>
           </div>
 
            <FullVideoCardFooter video = {data}   />

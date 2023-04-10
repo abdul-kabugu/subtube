@@ -20,7 +20,7 @@ export default function FullVideoCardFooter({video}) {
        console.log("from footer", video)
 
   return (
-    <div className='mt-3 lg:px-6'>
+    <div className='mt-3 lg:px-6 w-full bg-purple-500 overflow-x-hidden'>
       <div className='flex xs:gap-2 gap-4'>
         <div className='flex gap-1 py-1 xs:px-1  lg:px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200' onClick={() => likePost(video?.postById?.id)}>
         <AiOutlineLike  size={17} />
@@ -32,12 +32,12 @@ export default function FullVideoCardFooter({video}) {
              <button>      Dislike {video?.postById?.downvotesCount && video?.postById?.downvotesCount}</button>
         </div>
 
-        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200' onClick={() => amplifyPost(video?.postById?.id, video)}>
+        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200 xs:hidden md:flex' onClick={() => amplifyPost(video?.postById?.id, video)}>
             <AiOutlineRetweet size={17} />
              <button> Amplify</button>
         </div>
 
-        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200' onClick={() => setisShowTipModal(true)}>
+        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200 xs:hidden md:flex' onClick={() => setisShowTipModal(true)}>
         <AiOutlineDollar size={17} />
              <button> Tip</button>
         </div>

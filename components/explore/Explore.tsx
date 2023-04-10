@@ -32,7 +32,7 @@ export default function Explore() {
      }
   return (
     <div className='w-fit  xs:w-screen md:w-auto'>
-        <div className="flex gap-3  max-w-full overflow-x-scroll" >
+        <div className="flex gap-3  max-w-full xs:overflow-x-scroll sm:overflow-hidden" >
             <div className={`flex gap-1 items-center cursor-pointer xs:px-2 md:px-5 ${currentTab === 0 && "border-b-2 border-violet-600"}`} onClick={() => setcurrentTab(0)}>
                 <AiOutlineFire size={18}  />
                  <button className='font-semibold leading-10 text-lg text-black/70'>Trending</button>

@@ -10,9 +10,9 @@ export default function SelectFile({file, setfile}) {
     videoRef.current.click()
    }
   return (
-    <div className=' h-[90vh] flex items-center justify-center'>
-    <div className='w-4/6 border-2 border-dotted border-gray-400 rounded-lg p-4 h-[70vh] flex flex-col items-center justify-center' onClick={handleOpenImgSelector}>
-      <AiOutlineUpload  className='text-black/70' size={170}  /> 
+    <div className=' xs:h-[90vh] md:h-[90vh] flex items-center justify-center'>
+    <div className='xs:w-full md:w-4/6 border-2 border-dotted border-gray-400 rounded-lg p-4 h-[70vh] flex flex-col items-center justify-center' onClick={handleOpenImgSelector}>
+      <AiOutlineUpload  className='text-black/70 ' size={150}  /> 
        <input  type="file"  onChange={e => setfile(e.target.files[0])} accept="video/*" ref={videoRef} hidden  /> 
        <div>
         <h1 className='text-4xl font-bold text-black/70'>Drag and drop</h1>

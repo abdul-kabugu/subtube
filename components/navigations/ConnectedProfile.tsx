@@ -60,7 +60,10 @@ const {shortenTxt} = useTruncateText()
           <div className='flex items-center gap-3 relative'>
             <div className='w-9 hover:bg-gray-200 rounded-full h-9 flex items-center justify-center cursor-pointer'>
               <RiNotification3Line className='h-5 w-5'  />
+               
             </div>
+
+            
                  <Link href={`/upload`}>
              <div className='xs:hidden md:flex items-center gap-2 bg-violet-800 hover:bg-violet-600 text-white leading-6 font-semibold py-1.5 px-3 rounded-lg'>
               <TbVideoPlus className='cursor-pointer' size={18} />
@@ -162,8 +165,8 @@ const {shortenTxt} = useTruncateText()
                   </Dialog.Title>
                   <div className="mt-2">
                     <h1 className='leading-4 text-gray-700 mb-5'>Click on your account to Sign In</h1>
-
-                      {userWallets?.map((wallet, i) => {
+                       
+                      { userWallets ?  userWallets?.map((wallet, i) => {
                         //https://nftcoders.com/avatar/avatar-cool.svg
                          const avatar = new Identicon(wallet.address, {
                           size: 420, // adjust the size of the avatar as per your requirement
@@ -179,7 +182,11 @@ const {shortenTxt} = useTruncateText()
                             <p className='leading-5'>{wallet.address && shortenTxt(wallet?.address, 12)}</p>
                           </div>
                         )
-                      })}
+                      })  : (
+                         <div>
+                          <h1>No wallet please install wallet</h1>
+                         </div>
+                      )}
                   </div>
 
                

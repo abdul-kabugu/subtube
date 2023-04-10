@@ -20,7 +20,7 @@ export default function Upload() {
      <title>Upload </title>
      </Head>
 
-      <div className='h-screen w-screen bg-sky-50'>
+      <div className='h-screen w-screen bg-sky-50 px-2'>
         {file? (
           <UploadForm file = {file} setfile = {setfile} selectedThumbnail = {selectedTumbnail} setSelectedThumbnail = {setselectedTumbnail}
             videoTitle = {videoTitle} setVideoTitle = {setvideoTitle} videoCaption = {videoCaption} setVideoCaption = {setvideoCaption}

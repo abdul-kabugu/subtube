@@ -122,7 +122,7 @@ const {shortenTxt} = useTruncateText()
       {currentUserProfile ?(
         <ConnectedUser  />
       ): 
-         <button className='bg-violet-800 py-1.5 px-4 rounded-xl text-white font-semibold capitalize' onClick={handleConnectWallet}>connect wallet</button>
+         <button className='bg-violet-800 xs:py-0.5 md:py-1.5 xs:px-2 md:px-4 rounded-xl text-white md:font-semibold capitalize' onClick={handleConnectWallet}>connect wallet</button>
 
          
         

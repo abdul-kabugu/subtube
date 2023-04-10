@@ -31,24 +31,24 @@ export default function Explore() {
         }
      }
   return (
-    <div>
-        <div className="flex gap-3 w-fit" >
-            <div className={`flex gap-1 items-center cursor-pointer px-5 ${currentTab === 0 && "border-b-2 border-violet-600"}`} onClick={() => setcurrentTab(0)}>
+    <div className='w-fit  xs:w-screen md:w-auto'>
+        <div className="flex gap-3  max-w-full overflow-x-scroll" >
+            <div className={`flex gap-1 items-center cursor-pointer xs:px-2 md:px-5 ${currentTab === 0 && "border-b-2 border-violet-600"}`} onClick={() => setcurrentTab(0)}>
                 <AiOutlineFire size={18}  />
                  <button className='font-semibold leading-10 text-lg text-black/70'>Trending</button>
             </div>
 
-            <div className={`flex gap-1 items-center cursor-pointer px-5 ${currentTab === 1 && "border-b-2 border-violet-600"}`} onClick={() => setcurrentTab(1)}>
+            <div className={`flex gap-1 items-center cursor-pointer xs:px-2 md:px-5 ${currentTab === 1 && "border-b-2 border-violet-600"}`} onClick={() => setcurrentTab(1)}>
                 <AiOutlineFieldTime size={18}  />
                  <button className='font-semibold leading-10 text-lg text-black/70'>Latest</button>
             </div>
 
-            <div className={`flex gap-1 items-center cursor-pointer px-5 ${currentTab === 2 && "border-b-2 border-violet-600"}`} onClick={() => setcurrentTab(2)}>
+            <div className={`flex gap-1 items-center cursor-pointer xs:px-2 md:px-5 ${currentTab === 2 && "border-b-2 border-violet-600"}`} onClick={() => setcurrentTab(2)}>
                 <AiOutlineThunderbolt size={18} />
                 <button className='font-semibold leading-10 text-lg text-black/70'>Popular</button>
             </div>
 
-            <div className={`flex gap-1 items-center cursor-pointer px-5 ${currentTab === 3 && "border-b-2 border-violet-600"}`} onClick={() => setcurrentTab(3)}>
+            <div className={`flex gap-1 items-center cursor-pointer xs:px-2 md:px-5 ${currentTab === 3 && "border-b-2 border-violet-600"}`} onClick={() => setcurrentTab(3)}>
                 <TbSquareRounded size={15} />
                 <button className='font-semibold leading-10 text-lg text-black/70'>Interesting</button>
             </div>

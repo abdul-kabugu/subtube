@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function MobileNav() {
   return (
-    <div  className='fixed bottom-0 mt bg-red-600 w-full h-12 py-3 px-3 xs:flex md:hidden justify-between items-center z-10'>
+    <div  className='fixed bottom-0 mt border-t-2 border-gray-400 rounded-t-md  bg-white w-full h-12 py-3 px-3 xs:flex md:hidden justify-between items-center z-10'>
     
         {mobileNavigations.map((item, i) => {
 

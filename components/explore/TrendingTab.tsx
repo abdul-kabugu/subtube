@@ -15,7 +15,7 @@ export default function TrendingTab() {
         )
      }
   return (
-    <div className='flex gap-2'>
+    <div className='flex gap-2 '>
    {data?.posts?.map((vid, i) =>  {
     return(
         <VideoCard  key={i} video = {vid} />

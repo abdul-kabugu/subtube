@@ -20,7 +20,7 @@ export default function FullVideoCardFooter({video}) {
        console.log("from footer", video)
 
   return (
-    <div className='mt-3 lg:px-6 w-full bg-purple-500 overflow-x-hidden'>
+    <div className='mt-3 lg:px-6 w-full  overflow-x-hidden'>
       <div className='flex xs:gap-2 gap-4'>
         <div className='flex gap-1 py-1 xs:px-1  lg:px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200' onClick={() => likePost(video?.postById?.id)}>
         <AiOutlineLike  size={17} />

@@ -2,7 +2,7 @@
 import { client } from '@/graphql/apolloClient'
 import { GET_ACCOUNT_DEARCH_QUERY } from '@/graphql/fragments/accountSearchQuery'
 import { SEARCH_VIDEO_QUERY } from '@/graphql/fragments/videoSearchQuery'
-
+import {CiSearch} from 'react-icons/ci'
 import {useState, useEffect} from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import ChannelQuery from './ChannelQuery'
@@ -86,7 +86,7 @@ const [isSearchDataError, setisSearchDataError] = useState()
           placeholder="Search videos or channels"
           className='xs:hidden md:block md:w-[330px] lg:w-[420px] py-1 px-3 rounded-md focus:outline-none bg-inherit '
         />
-        <AiOutlineSearch  className="text-gray-600" size={20} />
+        <CiSearch className="text-gray-600 cursor-pointer w-6 h-6" size={20} />
 
         
     </div>

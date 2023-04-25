@@ -3,11 +3,18 @@
 import { useGetPopulaVideos } from '@/Hooks'
 import React from 'react'
 import { VideoCard } from '../cards'
+import { Error } from '../errors'
 import VideoCardSkeleton from '../Loder/VideoCardSkeleton'
 
 export default function Popular() {
     const {data,loading, error} = useGetPopulaVideos()
     console.log("popular videos", data)
+
+      if(error) {
+        return(
+            <Error  />
+        )
+      }
     if(loading){
         return(
             <VideoCardSkeleton  />

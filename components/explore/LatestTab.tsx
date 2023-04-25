@@ -3,6 +3,7 @@
 import { useGetLatestVidoes } from '@/Hooks';
 import React from 'react'
 import { VideoCard } from '../cards';
+import { Error } from '../errors';
 import VideoCardSkeleton from '../Loder/VideoCardSkeleton';
 
 export default function LatestTab() {
@@ -17,7 +18,11 @@ const formattedDate = threeDaysAgo.toISOString();
   const {data, loading, error} = useGetLatestVidoes(formattedDate)
 // use the formatted date in your GraphQL query
 console.log("formatted date", data); // outp
-
+   if(error){
+    return(
+      <Error   />
+    )
+   }
   if(loading) {
     return(
        <VideoCardSkeleton  />

@@ -2,6 +2,7 @@
 
 import { useDiscoverVideos } from '@/Hooks'
 import { SubsocialContext } from '@/subsocial/provider'
+
 import {useState, useContext} from 'react'
 import {fakeArray} from '../../assets/constant'
 import { VideoCard } from '../cards'
@@ -10,7 +11,7 @@ import VideoCardSkeleton from '../Loder/VideoCardSkeleton'
 
 
 export default function HomeView() {
- 
+ const [isYess, setisYess] = useState(true)
 
   const [isLoading, setisLoading] = useState(true)
   const {posts, isPostsLoading, isPostsError} = useDiscoverVideos()

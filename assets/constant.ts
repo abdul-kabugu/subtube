@@ -1,10 +1,20 @@
+// @ts-nocheck
+
 import {AiOutlineHome, AiOutlineHistory, AiOutlineTwitter, AiOutlineSetting, AiOutlinePlusCircle} from 'react-icons/ai'
 import {BsCollection} from 'react-icons/bs'
 import {FcAbout} from 'react-icons/fc'
+import {toSubsocialAddress} from '@subsocial/utils'
 import{ MdOutlineExplore, MdOutlineVideoLibrary, MdOutlinePrivacyTip } from "react-icons/md"
 import {RiHomeLine} from 'react-icons/ri' 
   import {CiUser} from 'react-icons/ci'
   import {TbSettings} from 'react-icons/tb'
+
+  let currentUserAddress 
+  if (typeof window !== 'undefined') {
+    // Perform localStorage action
+    const CONNECTED_USER_DETAILS = JSON.parse(localStorage.getItem('poltubeUserDetails'));
+      currentUserAddress = toSubsocialAddress(CONNECTED_USER_DETAILS?.address)
+  }
 export const navigations = [
     {
       title : "Home",
@@ -154,7 +164,7 @@ export const videoCategories = [
  export const profilePop = [
   {
     title : "Your Channel",
-     to : "/channel",
+     to : `/channel/${currentUserAddress}` || "channel",
      icon : CiUser
   },
 

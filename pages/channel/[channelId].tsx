@@ -12,22 +12,22 @@ export default function channelId({data, userId, loading, error}) {
     <>
      <Head>
       <title>
-      {data?.accountById?.profileSpace.name  || data?.accountById?.profileSpace.handle || data?.accountById?.profileSpace.username || "FrenTube" }
+      {data?.accountById?.profileSpace?.name  || data?.accountById?.profileSpace?.handle || data?.accountById?.profileSpace?.username || "FrenTube" }
      </title>
             <meta name='description' content={data?.accountById?.profileSpace?.summary} />
 
               {/* Twitter */}
 <meta name="twitter:card" content={`FrenTube`} key="twcard" />
-<meta name="twitter:creator" content={data?.accountById?.profileSpace.name  || data?.accountById?.profileSpace.handle || data?.accountById?.profileSpace.username || "FrenTube" } key="twhandle" />
+<meta name="twitter:creator" content={data?.accountById?.profileSpace?.name  || data?.accountById?.profileSpace?.handle || data?.accountById?.profileSpace?.username || "FrenTube" } key="twhandle" />
 
 {/* Open Graph */}
 <meta property="og:url" content={`/channels/${channelId}`} key="ogurl" />
 <meta property="og:image" content={`/img/banner.png`} key="ogimage" />
 <meta property="og:site_name" content={`Poltube -  Decentralized video shring platform`} key="ogsitename" />
-<meta property="og:title" content= {data?.accountById?.profileSpace.name  || data?.accountById?.profileSpace.handle || data?.accountById?.profileSpace.username || "FrenTube" } key="ogtitle" />
+<meta property="og:title" content= {data?.accountById?.profileSpace?.name  || data?.accountById?.profileSpace?.handle || data?.accountById?.profileSpace?.username || "FrenTube" } key="ogtitle" />
 <meta property="og:description" content={"Poltube -  Decentralized video  sharing platform"} key="ogdesc" />
      </Head>
-    <div className='min-w-full '>
+    <div className=' max-w-full md:min-w-[95vw]  '>
        <Banner data = {data} loading = {loading}  error = {error} />  
        <UserVideos channelId = {channelId} /> 
     </div>

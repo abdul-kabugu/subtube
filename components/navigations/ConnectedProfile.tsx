@@ -9,6 +9,7 @@ import {TbVideoPlus} from 'react-icons/tb'
 import Link from 'next/link';
 import { CiLogout, CiUser } from 'react-icons/ci';
 import { profilePop } from '@/assets/constant';
+import {toSubsocialAddress} from '@subsocial/utils'
 export default function ConnectedProfile() {
    const [isAuthenticated, setisAuthenticated] = useState(false)
    const [isShowSignInModal, setisShowSignInModal] = useState(false)
@@ -179,7 +180,7 @@ const {shortenTxt} = useTruncateText()
                                <p className='leading-7'>{wallet?.meta?.name}</p>
                                 
                             </div>
-                            <p className='leading-5'>{wallet.address && shortenTxt(wallet?.address, 12)}</p>
+                            <p className='leading-5'>{wallet.address && shortenTxt( wallet?.address, 12)}</p>
                           </div>
                         )
                       })  : (

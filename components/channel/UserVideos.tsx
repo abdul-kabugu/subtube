@@ -11,20 +11,25 @@ import classNames from 'classnames';
 import { useGetUserData } from '@/Hooks'
 import { useRouter } from 'next/router'
 import VideoCardSkeleton from '../Loder/VideoCardSkeleton'
+import { Error } from '../errors'
 
 export default function UserVideos() {
     const router = useRouter()
     const channelId =  router.query.channelId
     const {userData, isUserDataLoading, isUserDataError} = useGetUserData(channelId)
     console.log("the user data", userData)
-
+   if(isUserDataError) {
+    return(
+      <Error  />
+    )
+   }
       if(isUserDataLoading){
         return(
           <VideoCardSkeleton   />
         )
       }
   return (
-    <div className='mt-5  w-fit'>
+    <div className='mt-5  w-full '>
         <div>
             <Tab.Group>
                 <Tab.List className={`flex space-x-1 gap-6 `}> 

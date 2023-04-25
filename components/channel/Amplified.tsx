@@ -16,7 +16,7 @@ export default function Amplified() {
     )
   }
   return (
-    <div className='flex gap-2 mt-4'>
+    <div className='flex gap-2 mt-4 '>
         {data?.accountById?.posts.map((video, i) =>  {
 
           return(

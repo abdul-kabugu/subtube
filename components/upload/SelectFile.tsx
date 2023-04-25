@@ -4,6 +4,7 @@ import {useState, useRef} from 'react'
 import { AiOutlineUpload } from 'react-icons/ai'
 
 export default function SelectFile({file, setfile}) {
+  
     const videoRef = useRef(null)
     console.log("The  selected file", file)
    const  handleOpenImgSelector = () =>  {

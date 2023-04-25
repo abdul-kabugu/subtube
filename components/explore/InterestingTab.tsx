@@ -3,10 +3,18 @@
 import { useGetInterestedVideos } from '@/Hooks'
 import React from 'react'
 import { VideoCard } from '../cards'
+import { Error } from '../errors'
 import VideoCardSkeleton from '../Loder/VideoCardSkeleton'
 
 export default function InterestingTab() {
     const {data, loading, error} = useGetInterestedVideos()
+     if(error) {
+        return(
+            <Error  />
+        )
+
+        }
+     
     if(loading){
         return(
             <VideoCardSkeleton  />

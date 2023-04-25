@@ -2,7 +2,7 @@
 
 import { SelectFile, UploadForm } from '@/components/upload'
 import Head from 'next/head'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 export default function Upload() {
     const [selectedVideo, setselectedVideo] = useState()
@@ -12,6 +12,16 @@ export default function Upload() {
     const [videoTags, setvideoTags] = useState([])
     const [tag, settag] = useState("")
     const [file, setfile] = useState()
+    const [isConnected, setisConnected] = useState(false)
+
+     useEffect(() => {
+      const CONNECTED_USER_DETAILS = JSON.parse(localStorage.getItem('poltubeUserDetails'));
+      console.log("the connected from upload", CONNECTED_USER_DETAILS)
+         if(CONNECTED_USER_DETAILS?.address){
+          setisConnected(true)
+         }
+     }, [])
+     
 
    console.log("the  selcted  file  ts  file", selectedVideo)
   return (

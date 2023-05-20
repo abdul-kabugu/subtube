@@ -84,7 +84,7 @@ export default function WatchMain({vidId}) {
                 </div>
               </div>
 
-               <button className=' md:font-semibold md:text-lg bg-violet-700 text-white xs:px-2 xs:py-1 md:px-3 md:py-1.5 rounded-lg' onClick={() => subscribe()}>{isSubscriber ? "Subscribed" : "Subscribe"}</button>
+               <button className=' md:font-semibold md:text-lg bg-violet-800 text-white xs:px-2 xs:py-1 md:px-3 md:py-1.5 rounded-lg' onClick={() => subscribe()}>{isSubscriber ? "Subscribed" : "Subscribe"}</button>
           </div>
 
            <FullVideoCardFooter video = {data}   />

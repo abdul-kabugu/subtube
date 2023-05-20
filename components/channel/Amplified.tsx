@@ -10,6 +10,15 @@ export default function Amplified() {
   const router = useRouter()
   const channelId =  router.query.channelId
   const {data, loading, error} = useGetAmplifiedVideos(channelId)
+  console.log("amplified videos", data)
+  if(data?.accountById?.posts?.length < 1){
+    return(
+      <div className='flex items-center justify-center flex-col gap-2'>
+        <img src='/img/empty.svg' className='w-[150px] rounded-full' alt='empty image' />
+         <h2 className=' font-bold'>No Results Found</h2>
+      </div>
+    )
+  }
   if(loading) {
     return(
        <VideoCardSkeleton  />

@@ -10,7 +10,7 @@ export default function VideoQuery({data, loading, error}) {
   if(data?.posts?.length === 0) {
     return(
        <div className='flex items-center flex-col'>
-        <h1 className='text-gray-600 text-sm'>No Data</h1>
+        <h1 className='text-gray-600 text-sm'>No Videos found</h1>
          <HiOutlineDatabase className='w-[13px text-gray-400]' />
        </div>
     )

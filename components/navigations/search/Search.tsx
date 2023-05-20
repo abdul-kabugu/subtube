@@ -7,6 +7,7 @@ import {useState, useEffect} from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import ChannelQuery from '../ChannelQuery'
 import VideoQuery from '../VideoQuery'
+import { SPACE_ID } from '@/assets/constant'
 
 export default function Search() {
     const [searchQuery, setsearchQuery] = useState("")
@@ -27,7 +28,7 @@ const [isSearchDataError, setisSearchDataError] = useState()
                 "AND": [
                   {
                     "space": {
-                      "id_eq": "1080"
+                      "id_eq": SPACE_ID
                     }
                   }
                 ]

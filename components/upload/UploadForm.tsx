@@ -33,7 +33,7 @@ export default function UploadForm({file,setfile ,  selectedThumbnail, setSelect
           settag("")
         }
      }
-     console.log("current available tags", videoTags)
+    
 
         //Remove  tag
    const removeTag = (index) => {
@@ -57,7 +57,7 @@ export default function UploadForm({file,setfile ,  selectedThumbnail, setSelect
      })
      }
    }, [file])
-     console.log("total video thumbnail", vidThunbnail)
+    
     
     
        const  resetForm = () =>  {
@@ -72,7 +72,7 @@ export default function UploadForm({file,setfile ,  selectedThumbnail, setSelect
        const {createPost, isCreatingPost, isCreatingPostError, isPostCreated} = useCreatePost()
 
 
-   console.log("is apis ready", isReady)
+  
 
    const base64ToBlob = (base64String, type) => {
     const byteCharacters = atob(base64String);
@@ -183,7 +183,7 @@ export default function UploadForm({file,setfile ,  selectedThumbnail, setSelect
                         <>
                         <AiOutlinePicture className='text-black/80' size={35} />
                      <h3 className='text-sm text-black/80 -m-2'>Upload</h3>
-                     <input    type="file"  onChange={e => setSelectedThumbnail(e.target.files[0])} accept="image/*" ref={customThumbnailRef} hidden />
+                     <input type="file"  onChange={e => setSelectedThumbnail(e.target.files[0])} accept="image/*" ref={customThumbnailRef} hidden  />
                      </>
                       )
 

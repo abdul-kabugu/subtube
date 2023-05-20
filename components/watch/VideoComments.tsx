@@ -30,12 +30,12 @@ export default function VideoComments({ video}) {
           <div className=''>
               <h1 className='text-xl font-semibold my-4'>Comments</h1>
               <div className='flex items-center gap-4'>
-    <img src={`data:image/svg+xml;base64,${avatar}`} className="w-[35px] h-[35px] ring-2 ring-violet-400 rounded-full " />
+    <img src={`data:image/svg+xml;base64,${avatar}`} className="w-[33px] h-[33px] ring-2 rounded-full " />
       <div className='w-[100%] py-1 xs:px-1 md:px-3 border border-gray-300 rounded-md flex items-center  justify-between'>
         <input   value={commentTxt} onChange={e => setcommentTxt(e.target.value)}  placeholder="I like this video"
           className='w-[85%] focus:outline-none py-1'
         />
-        <AiOutlineSend  className={`xs:w-7 xs:h-7 md:w-9 md:h-9 cursor-pointer text-black/80 ${isCommenting && "text-gray-600"} `} onClick={() => commentToPost(commentTxt, video?.postById?.id)} />
+        <AiOutlineSend  className={`xs:w-5 xs:h-5 md:w-7 md:h-7 cursor-pointer text-black/80 ${isCommenting && "text-gray-600"} `} onClick={() => commentToPost(commentTxt, video?.postById?.id)} />
 
       </div>
               </div>

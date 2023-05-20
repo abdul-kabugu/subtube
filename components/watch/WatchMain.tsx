@@ -2,7 +2,7 @@
 
 import { fakeArrayTwo } from '@/assets/constant'
 import { GET_POST_BY_ID } from '@/graphql/fragments/getPostById'
-import { useGetVideoById, UseSubscribe } from '@/Hooks'
+import { useGetVideoById, UseSubscribe, useTruncateText } from '@/Hooks'
 import { useQuery } from '@apollo/client'
 import {useState, useEffect, useContext} from 'react'
 import { FullVideoCard } from '../cards'
@@ -16,6 +16,7 @@ import VideoComments from './VideoComments'
 import { Error } from '../errors'
 import { SubsocialContext } from '@/subsocial/provider'
 import {toSubsocialAddress} from '@subsocial/utils'
+import Image from 'next/image'
 
 export default function WatchMain({vidId}) {
   const [isSubscriber, setisSubscriber] = useState(true)
@@ -25,7 +26,7 @@ export default function WatchMain({vidId}) {
   const {subscribe, isSubscribing, } = UseSubscribe()
   const {api, isReady} = useContext(SubsocialContext)
     console.log("the video data", data)
-
+  const {shortenTxt} = useTruncateText()
     // check if  user have subscribes
     const checkIfIsSubscriber = async (accountA, accountB) =>  {
       if(api){
@@ -72,18 +73,18 @@ export default function WatchMain({vidId}) {
          <h1 className='leading-10 text-xl capitalize text-black/80 font-semibold'>{data?.postById?.title}</h1>
 
           <div className='mt-1 flex justify-between  items-center'>
-            <div className='flex gap-3'>
+            <div className='flex gap-2 items-center '>
              <Link href={`/channel/${data?.postById?.createdByAccount?.id }`}>
-              <img    src={`data:image/svg+xml;base64,${avatar}`} className=" xs:w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] rounded-full" />
+              <Image src={`data:image/svg+xml;base64,${avatar}`} className=" xs:w-[26px] h-[26px] sm:w-[30px] sm:h-[26px] md:w-[40px] md:h-[38px] rounded-full" width={1200} height={600}alt='video cover' />
               </Link>
                 <div>
-                <Link href={`/channel/${data?.postById?.createdByAccount?.id}`}> <h1 className='md:text-lg lg:text-xl lg:leading-10 text-black/90 font-semibold md:leading-9 '>{ data?.postById?.createdByAccount.profileSpace?.name ||  data?.postById?.createdByAccount && shortenTxt(data?.postById?.createdByAccount?.id, 10)}</h1> </Link>
+                <Link href={`/channel/${data?.postById?.createdByAccount?.id}`}> <h1 className='xs:text-sm md:text-lg lg:text-xl  text-black/90 font-semibold  '>{ data?.postById?.createdByAccount.profileSpace?.name ||  data?.postById?.createdByAccount && shortenTxt(data?.postById?.createdByAccount?.id, 10)}</h1> </Link>
 
-                  <h3 className='text-black/75 xs:text-sm'>{data?.postById?.createdByAccount?.followersCount} Subscribers</h3>
+                  <h3 className='text-black/75 xs:text-xs'>{data?.postById?.createdByAccount?.followersCount} Subscribers</h3>
                 </div>
               </div>
 
-               <button className=' md:font-semibold md:text-lg bg-violet-700 text-white xs:px-2 xs:py-1 md:px-4 md:py-1.5 rounded-lg' onClick={() => subscribe()}>{isSubscriber ? "Subscribed" : "Subscribe"}</button>
+               <button className=' md:font-semibold md:text-lg bg-violet-700 text-white xs:px-2 xs:py-1 md:px-3 md:py-1.5 rounded-lg' onClick={() => subscribe()}>{isSubscriber ? "Subscribed" : "Subscribe"}</button>
           </div>
 
            <FullVideoCardFooter video = {data}   />

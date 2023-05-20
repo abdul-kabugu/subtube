@@ -17,10 +17,10 @@ import useReactions from "./useLikePost";
 import { usePinToIpfs } from "./usePinToIpfs";
 import { UseSubscribe } from "./useSubscribe";
 import useTruncateText from "./useTruncateText";
-
+import { useUpdateProfile } from "./useUpdateProfile";
 export {
     useAuthenticate, useTruncateText, useCreateSpace, useCreatePost, useDiscoverVideos,
     useGetVideoById, useGetPostComments, useCreateComment, useReactions, UseSubscribe,
     useGetUserData, useAmplify, useCreateProfile, useDonate, usePinToIpfs, useGetLatestVidoes,
-    useGetPopulaVideos, useGetInterestedVideos
+    useGetPopulaVideos, useGetInterestedVideos, useUpdateProfile
 }

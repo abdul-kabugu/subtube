@@ -5,8 +5,8 @@ import { SEARCH_VIDEO_QUERY } from '@/graphql/fragments/videoSearchQuery'
 import {CiSearch} from 'react-icons/ci'
 import {useState, useEffect} from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
-import ChannelQuery from './ChannelQuery'
-import VideoQuery from './VideoQuery'
+import ChannelQuery from '../ChannelQuery'
+import VideoQuery from '../VideoQuery'
 
 export default function Search() {
     const [searchQuery, setsearchQuery] = useState("")

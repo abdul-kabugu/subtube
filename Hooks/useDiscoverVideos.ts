@@ -10,7 +10,7 @@ import { GET_POSTS_BY_SPACE_ID } from '../graphql/fragments/getPostsBySpaceId'
     variables : {
       where : {
         "space" : {
-          "id_eq": "1080"
+          "id_eq": SPACE_ID
         }
       }
     }

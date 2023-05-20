@@ -27,13 +27,13 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
   size: 420, // adjust the size of the avatar as per your requirement
   format: 'svg' // choose the format of the avatar, such as png or svg
 }).toString()
-   console.log("the video", video)
+ 
   return (
 
-    <div className='xs:w-full md:w-[300px]  rounded-lg  flex-grow flex-shrink mb-2 py-1 px-1 md:max-w-[360px]  ' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
+    <div className='xs:w-[100vw] md:w-[300px]  rounded-lg  flex-grow flex-shrink mb-2 py-1 px-1 md:max-w-[360px]  ' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
        <div className='  w-full xs:h-[220px] sm:h-[290px] md:h-[170px]'>
         <Link href={`/watch/${video?.id}`}>
-           <img  src={`${IPFS_GATEWAY}${video?.image}` || `${IPFS_GATEWAY_TWO}${video?.image}`}   alt="video cover" className='w-full h-[100%] object-cover rounded-lg '  />
+           <img  src={`${IPFS_GATEWAY}${video?.image}` || `${IPFS_GATEWAY_TWO}${video?.image}`}   alt="video cover" className='w-full h-[100%] object-cover rounded-lg ' />
         </Link> 
         </div>
 
@@ -59,9 +59,9 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
           
            </div>
            </div>
-            {isDisplayDots  && (
+            {/*isDisplayDots  && (
               <RxDotsVertical  size={20} className="cursor-pointer" />
-            )}
+            )*/}
          </div>
          
 

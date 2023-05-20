@@ -1,7 +1,7 @@
 
 import React, { createContext, useEffect, useState, useCallback } from 'react'
 
-import { SubsocialApi } from '@subsocial/api'
+import { SubsocialApi, SubsocialIpfsApi } from '@subsocial/api'
 import { generateCrustAuthToken } from '@subsocial/api/utils/ipfs'
 
 import {
@@ -65,7 +65,7 @@ const setStoredNetwork = (network: CustomNetwork) => {
     case 'localnet':
       return Localnet
     default:
-      return Testnet
+      return Mainnet
   }
 }
 }
@@ -87,7 +87,7 @@ export const SubsocialContextProvider = ({
   const [api, setApi] = useState<SubsocialApi | null>(null)
   const [network, setNetwork] = useState<CustomNetwork>(
     //defaultNetwork ?? getStoredNetwork()
-    Testnet
+    Mainnet
   )
 
   const initialize = useCallback(async () => {
@@ -104,6 +104,14 @@ export const SubsocialContextProvider = ({
         authorization: 'Basic ' + CRUST_TEST_AUTH_KEY,
       })
     }
+
+    // For mainnet beta using CRUST IPFS test Mnemonic.
+   /* if (network === Mainnet) {
+      // Use this ipfs object, to set authHeader for writing on Crust IPFS cluster.
+      newApi.ipfs.setWriteHeaders({
+        authorization: 'Basic ' + CRUST_TEST_AUTH_KEY,
+      })
+    }*/
   }, [])
 
   useEffect(() => {

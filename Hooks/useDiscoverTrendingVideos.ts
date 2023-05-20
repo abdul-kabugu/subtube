@@ -1,3 +1,4 @@
+import { SPACE_ID } from '@/assets/constant'
 import { GET_TRENDING_VIDEOS } from '@/graphql/fragments/geTrendingVideos'
 import {useQuery} from '@apollo/client'
 
@@ -10,7 +11,7 @@ export const useDiscoverTrendingVideos = () =>  {
             {
               "upvotesCount_gt": 1,
               "space": {
-                "id_eq": "1080"
+                "id_eq": SPACE_ID
               },
               "image_isNull": false,
               "body_isNull": false,

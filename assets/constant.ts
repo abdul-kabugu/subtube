@@ -6,8 +6,10 @@ import {FcAbout} from 'react-icons/fc'
 import {toSubsocialAddress} from '@subsocial/utils'
 import{ MdOutlineExplore, MdOutlineVideoLibrary, MdOutlinePrivacyTip } from "react-icons/md"
 import {RiHomeLine} from 'react-icons/ri' 
-  import {CiUser} from 'react-icons/ci'
+import { HomeOutline, FeedOutline, FireOutline, DisconnectOutline, Discover, ExploreOutline, NewVideoOutline } from '@/Icons'
+  import {CiUser, CiHome} from 'react-icons/ci'
   import {TbSettings} from 'react-icons/tb'
+import {VscLibrary} from 'react-icons/vsc'
 
   let currentUserAddress 
   if (typeof window !== 'undefined') {
@@ -19,13 +21,13 @@ export const navigations = [
     {
       title : "Home",
       to : "/",
-      icon :  RiHomeLine 
+      icon :  HomeOutline
     },
     
    {
-        title : "Subscriptions",
-        to : "/subscribtions",
-        icon : MdOutlineVideoLibrary
+        title : "Timeline",
+        to : "/timeline",
+        icon : FeedOutline
       },
 
      /* {
@@ -37,7 +39,7 @@ export const navigations = [
       {
         title : "Explore",
         to : "/explore",
-        icon : MdOutlineExplore
+        icon : Discover
       },
 
      /* {
@@ -52,26 +54,26 @@ export const mobileNavigations = [
   {
     title : "Home",
     to : "/",
-    icon : RiHomeLine
+    icon : HomeOutline
   },
 
   {
     title : "New Video",
     to : "/upload",
-    icon : AiOutlinePlusCircle  
+    icon : NewVideoOutline 
   },
 
 
-  {
+  /*{
     title : "Subscriptions",
     to : "/subscribtions",
-    icon : MdOutlineVideoLibrary
-  },
+    icon : ExploreOutline
+  },*/
 
- {
+{
     title : "Explore",
     to : "/explore",
-    icon : MdOutlineExplore
+    icon : Discover
   },
 ]
 
@@ -101,6 +103,57 @@ export const socialIcons = [
     },
 ]
 
+
+ export const interests = [
+  {
+    title :"Spaces",
+    symbol : "🌌" ,
+  },
+  {
+    title :"Fails",
+    symbol : "😅" ,
+  },
+  {
+    title :"Crypto",
+    symbol : "🌌" ,
+  },
+  {
+    title :"Blockchain",
+    symbol : "🔗" ,
+  },
+  {
+    title :"Regular",
+    symbol : "👮‍♀️" ,
+  },
+  {
+    title :"Defi",
+    symbol : "🏛" ,
+  },
+  {
+    title :"Gamifi",
+    symbol : "🎮" ,
+  },
+  {
+    title :"Infrastructure",
+    symbol : "🏙" ,
+  },
+  {
+    title :"Social",
+    symbol : "👥" ,
+  },
+  {
+    title :"Interesting",
+    symbol : "💫" ,
+  },
+  {
+    title :"NFT",
+    symbol : "📷" ,
+  },
+  {
+    title :"Science",
+    symbol : "🔭" ,
+  },
+ ]
 export const videoCategories = [
   {
     title : "Podcasts",
@@ -179,7 +232,7 @@ export const videoCategories = [
  ]
 export const IPFS_GATEWAY = "https://ipfs.subsocial.network/ipfs/"
 export  const IPFS_GATEWAY_TWO = "https://gateway.ipfscdn.io/ipfs/"
-export const SPACE_ID = 1080
+export const SPACE_ID =  "11414" //"1080"
 
  export const  fakeArray = [1, 2, 3, 4, 5, 6, 7,8,9,10,11,12]
  export const  fakeArrayTwo = [1, 2, 3, 4, 5, 6, 7, 8, 9]

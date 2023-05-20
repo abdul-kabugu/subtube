@@ -4,7 +4,7 @@ import RelatedVideoLosderSkelton from './RelatedVideoLosderSkelton'
 export default function VideoFullSkeleton() {
   return (
     <div className='flex gap-2'>
-    <div className="flex flex-col  animate-pulse  h-full justify-center flex-grow flex-shrink">
+    <div className="flex flex-col  animate-pulse  h-full justify-center flex-grow flex-shrink xl:w-[73vw]">
        <div className=" xs:w-[100vw]  md:w-[80vw] lg:w-[90vw] xl:w-[70vw] lg:h-[70vh] xs:h-[200px]  bg-gray-300  rounded-lg mb-1 ">
               </div>
         <div className="w-[350px] h-[10px] bg-gray-300 rounded-md mt-3"></div>

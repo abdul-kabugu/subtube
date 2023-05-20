@@ -1,6 +1,6 @@
 // @ts-nocheck
 import {useState, useEffect, Fragment} from 'react'
-import {Dialog, Transition, Popover} from '@headlessui/react'
+import {Dialog,  Popover} from '@headlessui/react'
 import { useAuthenticate, useTruncateText } from '@/Hooks'
 import Image from 'next/image'
 import Identicon from 'identicon.js';
@@ -10,12 +10,22 @@ import Link from 'next/link';
 import { CiLogout, CiUser } from 'react-icons/ci';
 import { profilePop } from '@/assets/constant';
 import {toSubsocialAddress} from '@subsocial/utils'
+import SettingsModal from '../modal/SettingsModal';
+import { Menu, Transition } from "@headlessui/react";
+import { useNotificationsModal, useSettingsModal } from '@/store/slices/modalSettingsSlice';
+import { AiOutlineSetting } from 'react-icons/ai';
+import { BellOutline, ChannelOutline, HandWaveOutline } from '@/Icons';
+import Notifications from './Notifications';
 export default function ConnectedProfile() {
    const [isAuthenticated, setisAuthenticated] = useState(false)
    const [isShowSignInModal, setisShowSignInModal] = useState(false)
     const [currentUserProfile, setcurrentUserProfile] = useState()
     const [testCond, settestCond] = useState(true)
     const [isShowProfilePop, setisShowProfilePop] = useState(false)
+    const {isSettingsModalVisible, toggleSettingsModal } = useSettingsModal()
+    const { isNotificationModalVisible,  toggleNotificationsModal} = useNotificationsModal()
+
+   // const [isShowSettingsModal, setisShowSettingsModal] = useState(false)
    const {connectWallet, userWallets, isNoExtension} = useAuthenticate()
 const {shortenTxt} = useTruncateText()
    const handleSaveLogins =(userDetails) => {
@@ -25,9 +35,17 @@ const {shortenTxt} = useTruncateText()
     setisAuthenticated(true)
   }
 
+  // open external links
+  function openURLInNewTab(url : any) {
+    let newTab = window.open(url, '_blank');
+    newTab?.focus();
+  }
+  // susocial address
+  const subsocialAddress = toSubsocialAddress(currentUserProfile?.address)
   const handleLogOut = () => {
     localStorage.removeItem('poltubeUserDetails');
     setisAuthenticated(false)
+    setcurrentUserProfile()
     setisShowProfilePop(false)
    }
 
@@ -36,6 +54,7 @@ const {shortenTxt} = useTruncateText()
      setisShowSignInModal(true)
      
 }
+
   console.log("current  user inf", currentUserProfile)
     useEffect(() => {
       const CONNECTED_USER_DETAILS = JSON.parse(localStorage.getItem('poltubeUserDetails'));
@@ -45,78 +64,80 @@ const {shortenTxt} = useTruncateText()
 
      
       const ConnectedUser = () =>  {
-          
-            
-              const avatar = new Identicon(currentUserProfile?.address || "heyeye its bla bla blah avatar  here ", {
+            const avatar = new Identicon(currentUserProfile?.address || "heyeye its bla bla blah avatar  here ", {
                 size: 120, // adjust the size of the avatar as per your requirement
                 format: 'svg' // choose the format of the avatar, such as png or svg
               }).toString()
-            
-
-           
-        
-      
-
-        return(
+          return(
           <div className='flex items-center gap-3 relative'>
             <div className='w-9 hover:bg-gray-200 rounded-full h-9 flex items-center justify-center cursor-pointer'>
-              <RiNotification3Line className='h-5 w-5'  />
+              <BellOutline className='h-5 w-5' onClick={toggleNotificationsModal} />
                
             </div>
-
-            
-                 <Link href={`/upload`}>
+  <Link href={`/upload`}>
              <div className='xs:hidden md:flex items-center gap-2 bg-violet-800 hover:bg-violet-600 text-white leading-6 font-semibold py-1.5 px-3 rounded-lg'>
               <TbVideoPlus className='cursor-pointer' size={18} />
                <button>New video</button>
              </div>
              </Link>
-               <div className='' onClick={() => setisShowProfilePop(! isShowProfilePop)}>
+              <Menu as="div" className="relative ">
+              <Menu.Button>
+         <Image src={`data:image/svg+xml;base64,${avatar}`}  width={10} height={10} className="w-9 h-9 cursor-pointer rounded-full" alt='profile pic' />
+          </Menu.Button>
+          <Transition
+              as={Fragment}
+              enter="transition ease-out duration-300"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
+            >
+              <Menu.Items
+                as="div"
+                className="absolute right-0 bg-white  shadow-lg  border border-indigo-200  rounded-lg w-[220px] px-4 py-3"
+              >
                 
-                <Image src={`data:image/svg+xml;base64,${avatar}`}  width={10} height={10} className="w-9 h-9 cursor-pointer rounded-full" />
-               
-               </div>
-
-               
-                 {isShowProfilePop && (
-                  <Transition
-                  show={isShowProfilePop}
-                  enter="transition-opacity duration-300 "
-                  enterFrom="opacity-0"
-                  enterTo="opacity-100"
-                  leave="transition-opacity duration-150"
-                  leaveFrom="opacity-100"
-                  leaveTo="opacity-0"
-
-                  className='absolute w-[210px] top-11 rounded-lg border border-gray-200 py-2 px-3 z-10 bg-white'
-                  >
-
-               <div className=''>
-               
-                      <div>
-                        {profilePop.map((item, i) =>  {
-
-                          return(
-                            <Link href={item.to} key={i}>
-                            <div className='flex gap-3 items-center mb-4'>
-                             
-                              <item.icon  className='' size={17} />
-                              <p className='leading-4 text-black/80 '>{item.title}</p>
-                            </div>
-                            </Link>
-                          )
-                        })}
-
-                         <div className='flex gap-3 items-center cursor-pointer' onClick={handleLogOut}>
-                          <CiLogout size={17} />
-                          <button className='text-black/80'>Sign out</button>
-                         </div>
-                      </div>
-
+                <Menu.Item>
+                  <Link href={`/channel/${subsocialAddress}`}>
+                  <div
+                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-indigo-100  px-2 rounded-lg my-3"
+                   >
+                    <ChannelOutline className="w-5 h-5" />
+                    <button className=" text-sm capitalize ">
+                     Your Channel
+                    </button>
                   </div>
+                  </Link>
+                </Menu.Item>
+              
+                 <Menu.Item>
+                  <div
+                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-indigo-100  px-2 rounded-lg my-3"
+                    onClick={() => openURLInNewTab(`https://polkaverse.com/accounts/${subsocialAddress}`)}
+                  >
+                    <AiOutlineSetting className="w-5 h-5" />
+                    <button className=" text-sm capitalize ">
+                      Channel Settings
+                    </button>
+                  </div>
+                </Menu.Item>
 
-                  </Transition>
-                 )}
+                <Menu.Item>
+                  <div
+                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-indigo-100  px-2 rounded-lg mt-3"
+                    onClick={handleLogOut}
+                  >
+                    <HandWaveOutline className="w-5 h-5" />
+                    <button className=" text-sm capitalize ">
+                      Sign out
+                    </button>
+                  </div>
+                </Menu.Item>
+              </Menu.Items>
+              </Transition>
+               </Menu>
+            
                 
           </div>
         )
@@ -198,6 +219,9 @@ const {shortenTxt} = useTruncateText()
         </Dialog>
       </Transition>
 
+       {isSettingsModalVisible  && <SettingsModal  />}
+        {isNotificationModalVisible && <Notifications />}
+         
     </div>
   )
 }

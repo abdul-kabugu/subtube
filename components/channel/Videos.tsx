@@ -2,13 +2,14 @@
 
 import React from 'react'
 import {VideoCard} from '../cards'
+import Image from 'next/image'
 export default function Videos({videos}) {
     const filteredPosts = videos?.filter(post => post.hasOwnProperty("image")  && post?.__typename === "Post"     && post.image !== null)
    console.log("the filtered posts", filteredPosts)
    if(filteredPosts.length < 1){
     return(
       <div className='flex items-center justify-center flex-col gap-2'>
-        <img src='/img/empty.svg' className='w-[150px] rounded-full' alt='empty image' />
+        <Image src='/img/empty.svg' className='w-[150px] rounded-full' alt='empty image' width={200} height={200} />
          <h2 className=' font-bold'>No Results Found</h2>
       </div>
     )

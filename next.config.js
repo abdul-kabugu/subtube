@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'https://ipfs.subsocial.network/ipfs/',
+        hostname: 'ipfs.subsocial.network',
         port: '',
        // pathname: '/account123/**',
       },

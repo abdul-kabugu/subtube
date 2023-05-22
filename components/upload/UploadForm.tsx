@@ -131,7 +131,7 @@ export default function UploadForm({file,setfile ,  selectedThumbnail, setSelect
       
 
   return (
-    <div className='flex items-center justify-center min-h-screen'>
+    <div className='flex items-center justify-center  min-h-screen'>
       <div className='xs:w-[100%] md:w-[100%] xl:w-5/6 xs:flex-col md:flex-row flex  gap-6'>
         <div className='xs:w-[100%] flex-1 '>
           <div className='  flex-1 flex flex-col gap-2  mb-3'>
@@ -169,13 +169,13 @@ export default function UploadForm({file,setfile ,  selectedThumbnail, setSelect
         </div>
 
           <div className=' flex-1 '>
-            <div className=''>
-              <video width={500} controls className='rounded-md' poster={  vidThunbnail}>
+            <div className='bg-black flex items-center justify-center py-1 rounded-lg mb-3'>
+              <video width={500} controls className='rounded-md w-[490px] max-h-[330px]' poster={  vidThunbnail}>
             <source src={URL.createObjectURL(file)}/>
             </video>
             </div>
 
-              <div className='mt-3 flex gap-2 flex-wrap items-center justify-center'>
+              <div className='mt-3 flex gap-2 flex-wrap items-center justify-center '>
                   <div className='w-[120px] h-[70px] border border-gray-300 rounded-lg flex flex-col items-center justify-center cursor-pointer' onClick={() => { !selectedThumbnail &&  customThumbnailRef.current.click()}}>
                       {selectedThumbnail ?  (
                         <img  src={URL.createObjectURL(selectedThumbnail)} className="w-[100%] h-[100%] object-cover rounded-md"   />
@@ -195,11 +195,11 @@ export default function UploadForm({file,setfile ,  selectedThumbnail, setSelect
                    {videoThumbnails?.map((item, i) => {
 
                     return(
-                      <div className={`w-[120px] h-[70px] border border-gray-300 rounded-md flex flex-col items-center justify-center cursor-pointer flex-grow-2 ${currentSelectedThmb === i && "ring-2 ring-violet-700 "}`}key={i} onClick={() =>  {
+                      <div className={`max-w-[120px] bg-black max-h-[70px] border border-gray-300 rounded-md flex flex-col items-center justify-center cursor-pointer flex-grow-2 ${currentSelectedThmb === i && "ring-2 ring-violet-700 "}`}key={i} onClick={() =>  {
                           setcurrentSelectedThmb(i)
                           setvidThunbnail(item)
                       }} >
-                           <img   src={item} key={i} className="rounded-lg"    />
+                           <img   src={item} key={i} className="rounded-lg w-[120px] h-[70px] object-contain"    />
                         </div>
 
                     )

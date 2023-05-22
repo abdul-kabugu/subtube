@@ -11,7 +11,7 @@ export default function Amplified() {
   const channelId =  router.query.channelId
   const {data, loading, error} = useGetAmplifiedVideos(channelId)
   console.log("amplified videos", data)
-  if(data?.accountById?.posts?.length < 1){
+  if(data?.accountById?.posts?.length < 1 || !data?.accountById?.posts){
     return(
       <div className='flex items-center justify-center flex-col gap-2'>
         <img src='/img/empty.svg' className='w-[150px] rounded-full' alt='empty image' />

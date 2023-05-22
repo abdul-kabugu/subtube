@@ -10,29 +10,43 @@ import TipUser from './TipUser'
 export default function FullVideoCardFooter({video}) {
     const [isShowShareToSocial, setisShowShareToSocial] = useState(false)
     const [isShowTipModal, setisShowTipModal] = useState(false)
+    const [isThisLiked, setisThisLiked] = useState(false)
+    const [isThisDesliked, setisThisDesliked] = useState(false)
+    const [isAmplified, setisAmplified] = useState(false)
     const {likePost, deslikePost, isDeslikeLoading, isLikeLoading} = useReactions()
     const {amplifyPost, isAmplifying} = useAmplify()
 
       const handleToggleShareToSocial = () =>  {
          setisShowShareToSocial(!isShowShareToSocial)
       }
-
-       console.log("from footer", video)
+    const handleLike = async (videoId) => {
+      setisThisLiked(true)
+       await  likePost(videoId)
+    }
+    const handleDeslike = async (videoId) => {
+     setisThisDesliked(true)
+       await deslikePost(videoId)
+    }
+    const handleAmplify = async(videoId, video) => {
+       setisAmplified(true)
+       await amplifyPost(videoId, video)
+    }
+    
 
   return (
     <div className='mt-3 lg:px-6 w-full  overflow-x-hidden'>
       <div className='flex xs:gap-2 gap-4'>
-        <div className='flex gap-1 py-1 xs:px-1  lg:px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200' onClick={() => likePost(video?.postById?.id)}>
+        <div className={`${isThisLiked && "text-violet-500"} flex gap-1 py-1 xs:px-1  lg:px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200`} onClick={() => handleLike(video?.postById?.id)}>
         <AiOutlineLike  size={17} />
              <button>Like  {video?.postById?.upvotesCount && video?.postById?.upvotesCount}</button>
         </div>
 
-        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200' onClick={() => deslikePost(video?.postById?.id)}>
+        <div className={`${isThisDesliked && "text-violet-500"} flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200`} onClick={() => handleDeslike(video?.postById?.id)}>
            <AiOutlineDislike size={17}  />
-             <button>      Dislike {video?.postById?.downvotesCount && video?.postById?.downvotesCount}</button>
+             <button> Dislike {video?.postById?.downvotesCount && video?.postById?.downvotesCount}</button>
         </div>
 
-        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200 xs:hidden md:flex' onClick={() => amplifyPost(video?.postById?.id, video)}>
+        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200 xs:hidden md:flex' onClick={() => handleAmplify(video?.postById?.id, video)}>
             <AiOutlineRetweet size={17} />
              <button> Amplify</button>
         </div>

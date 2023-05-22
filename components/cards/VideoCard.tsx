@@ -30,7 +30,7 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
  
   return (
 
-    <div className='xs:w-[100vw] md:w-[300px]  rounded-lg  flex-grow flex-shrink mb-2 py-1 px-1 md:max-w-[360px]  ' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
+    <div className='xs:w-[100vw] md:w-[300px]  rounded-lg  flex-grow flex-shrink mb-2 py-1 px-1 md:max-w-[330px]  ' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
        <div className='  w-full xs:h-[220px] sm:h-[290px] md:h-[170px]'>
         <Link href={`/watch/${video?.id}`}>
            <Image  src={`${IPFS_GATEWAY}${video?.image}` || `${IPFS_GATEWAY_TWO}${video?.image}`}   alt="video cover" className='w-full h-[100%] object-cover rounded-lg ' width={1200} height={600} />
@@ -41,17 +41,17 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
            <div className='flex gap-2 items-start'>
            <div>
             {avatarUrl  ? (
-               <Link href={`/channel/${video?.createdByAccount.id}`}> <img  src={`${IPFS_GATEWAY}${avatarUrl}`}   /></Link>
+               <Link href={`/channel/${video?.createdByAccount.id}`}> <img  src={`${IPFS_GATEWAY}${avatarUrl}`} alt='avatar' className='xs:w-8 xs:h-8 rounded-full'  /></Link>
             ) : (
 
-             <Link href={`/channel/${video?.createdByAccount.id}`}> <Image   src={`data:image/svg+xml;base64,${avatar}`} className="w-7 rounded-full" width={8} height={8} /></Link>
+             <Link href={`/channel/${video?.createdByAccount.id}`}> <Image   src={`data:image/svg+xml;base64,${avatar}`} className="w-8 h-8 rounded-full" width={8} height={8} alt='avatar' /></Link>
 
             )}
 
            </div>
 
            <div>
-           <Link href={`/watch/${video?.id}`}> <p className='truncate  font-semibold '>{video && shortenTxt(video?.title, 25)}</p></Link>
+           <Link href={`/watch/${video?.id}`}> <p className='truncate  font-semibold '>{video && shortenTxt(video?.title, 28)}</p></Link>
            <div className='flex gap-3   text-sm'>
            <div className='flex gap-1 text-gray-500'><p className=''>{video?.upvotesCount}</p> <p className='  font-semibold '>like</p></div>
              <p className=' text-gray-500'>{duration.humanize().replace("a ", "")} ago</p>

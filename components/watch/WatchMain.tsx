@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { fakeArrayTwo } from '@/assets/constant'
+import { fakeArrayTwo, IPFS_GATEWAY } from '@/assets/constant'
 import { GET_POST_BY_ID } from '@/graphql/fragments/getPostById'
 import { useGetVideoById, UseSubscribe, useTruncateText } from '@/Hooks'
 import { useQuery } from '@apollo/client'
@@ -40,9 +40,9 @@ export default function WatchMain({vidId}) {
       const CONNECTED_USER_DETAILS = JSON.parse(localStorage.getItem('poltubeUserDetails'));
        const connectedUser = toSubsocialAddress(CONNECTED_USER_DETAILS?.address)
       checkIfIsSubscriber(connectedUser, data?.postById?.createdByAccount?.id )
+      console.log("Creator id", data?.postById?.createdByAccount?.id, "my id",connectedUser )
 
     }, [ api, isReady])
-
     const avatar = new Identicon(data?.postById?.createdByAccount?.id || "blalabalalalala cosome created testxsts", {
       size: 420, // adjust the size of the avatar as per your requirement
       format: 'svg' // choose the format of the avatar, such as png or svg
@@ -64,7 +64,8 @@ export default function WatchMain({vidId}) {
      }
 
      
-     
+     const avatarUrl = data?.postById?.createdByAccount.profileSpace?.image
+    console.log("the avatar url", avatarUrl)
   return (
     <div className='flex  gap-2    md:px-0 '>
       <div className=' w-full'>
@@ -75,7 +76,11 @@ export default function WatchMain({vidId}) {
           <div className='mt-1 flex justify-between  items-center'>
             <div className='flex gap-2 items-center '>
              <Link href={`/channel/${data?.postById?.createdByAccount?.id }`}>
-              <Image src={`data:image/svg+xml;base64,${avatar}`} className=" xs:w-[26px] h-[26px] sm:w-[30px] sm:h-[26px] md:w-[40px] md:h-[38px] rounded-full" width={1200} height={600}alt='video cover' />
+               {avatarUrl ? (
+               <Image src={`${IPFS_GATEWAY}${avatarUrl}`} className=" xs:w-[26px] h-[26px] sm:w-[30px] sm:h-[26px] md:w-[40px] md:h-[38px] rounded-full" width={1200} height={600}alt='video cover' />
+               ) : (
+                <Image src={`data:image/svg+xml;base64,${avatar}`} className=" xs:w-[26px] h-[26px] sm:w-[30px] sm:h-[26px] md:w-[40px] md:h-[38px] rounded-full" width={1200} height={600}alt='video cover' />
+                 )}
               </Link>
                 <div>
                 <Link href={`/channel/${data?.postById?.createdByAccount?.id}`}> <h1 className='xs:text-sm md:text-lg lg:text-xl  text-black/90 font-semibold  '>{ data?.postById?.createdByAccount.profileSpace?.name ||  data?.postById?.createdByAccount && shortenTxt(data?.postById?.createdByAccount?.id, 10)}</h1> </Link>

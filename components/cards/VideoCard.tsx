@@ -8,6 +8,7 @@ import {useState} from 'react'
 import Identicon from 'identicon.js';
 import { useTruncateText } from '@/Hooks';
 import {RxDotsVertical} from 'react-icons/rx'
+import { Tooltip } from 'react-tippy';
 export default function VideoCard({video}) {
   const [isDisplayDots, setIsDisplayDots] = useState(false)
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -21,7 +22,7 @@ const duration = moment.duration(diffInHours, 'hours');
 const toggleIsDisplayDots = () => {
   isDisplayDots ?  setIsDisplayDots(false) : setIsDisplayDots(true)
 } 
-
+  console.log("the video from its file", video)
 const avatarUrl = video?.createdByAccount?.profileSpace?.image
 const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this  is auto generated avatr", {
   size: 420, // adjust the size of the avatar as per your requirement
@@ -30,7 +31,7 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
  
   return (
 
-    <div className='xs:w-[100vw] md:w-[300px]  rounded-lg  flex-grow flex-shrink mb-2 py-1 px-1 md:max-w-[330px]  ' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
+    <div className='xs:w-[100vw] md:w-[300px]  rounded-lg  flex-grow flex-shrink mb-2 py-1 px-1 md:max-w-[330px] relative ' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
        <div className='  w-full xs:h-[220px] sm:h-[290px] md:h-[170px]'>
         <Link href={`/watch/${video?.id}`}>
            <Image  src={`${IPFS_GATEWAY}${video?.image}` || `${IPFS_GATEWAY_TWO}${video?.image}`}   alt="video cover" className='w-full h-[100%] object-cover rounded-lg ' width={1200} height={600} />
@@ -65,7 +66,19 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
          </div>
          
 
-
+     {video?.kind === "SharedPost" && (
+     
+       <div className='absolute top-4 left-1 bg-white w-8 h-8 rounded-full flex items-center justify-center'>
+          <Tooltip 
+       title={`Amplified video`}
+       position="right"
+       trigger="mouseenter"
+       >
+         <p>⭐️</p> 
+         </Tooltip>
+         </div>
+         
+     )}
     </div>
     
   )

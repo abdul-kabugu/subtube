@@ -12,3 +12,8 @@ export const useNotificationsModal = create((set) => ( {
     isNotificationModalVisible: false,
     toggleNotificationsModal : () => set((state) => ({isNotificationModalVisible : !state.isNotificationModalVisible}))
 }))
+
+export const useEnergyModal = create((set) => ( {
+    isEnergyModalVisible: false,
+    toggleIsEnergyModalVisible : () => set((state) => ({isEnergyModalVisible : !state.isEnergyModalVisible}))
+}))

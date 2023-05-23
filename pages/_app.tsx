@@ -10,7 +10,7 @@ import type { AppProps } from 'next/app'
 import { useState } from 'react'
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ApolloProvider client={client}>
+     <ApolloProvider client={client}>
       <SubsocialContextProvider>
     <div className='w-full'>
       <BetaAlert />
@@ -23,5 +23,6 @@ export default function App({ Component, pageProps }: AppProps) {
     </div>
     </SubsocialContextProvider>
     </ApolloProvider>
+  
   ) 
 }

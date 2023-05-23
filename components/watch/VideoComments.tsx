@@ -5,6 +5,7 @@ import Identicon from 'identicon.js';
 import { useCreateComment, useGetPostComments } from '@/Hooks';
 import CommentCard from '../cards/CommentCard';
 import { AiOutlineSend } from 'react-icons/ai';
+import { toSubsocialAddress } from '@subsocial/utils';
 
 export default function VideoComments({ video}) {
     const [isShowComment, setisShowComment] = useState(false)
@@ -20,7 +21,8 @@ export default function VideoComments({ video}) {
      
     }, [])
     console.log("the now video", postComments)
-    const avatar = new Identicon(currentUserInfo?.address || "bla blah yhis  is  another  random genetrated icon"        , {
+    const subsocialAddress = toSubsocialAddress(currentUserInfo?.address)
+    const avatar = new Identicon(subsocialAddress|| "bla blah yhis  is  another  random genetrated icon"        , {
         size: 420, // adjust the size of the avatar as per your requirement
         format: 'svg' // choose the format of the avatar, such as png or svg
       }).toString()

@@ -18,10 +18,10 @@ const useCreateComment = () => {
              body: body,
              appId : "poltubeApp_1"
           })*/
-           const commentCID = JSON.stringify({
+           const commentCID = {
             body: body,
             appId : "poltubeApp_1"
-           })
+           }
           const commentCid = await uploadToIpfs(commentCID)
 
           const substrateApi = await api!.blockchain.api

@@ -12,10 +12,12 @@ import { profilePop } from '@/assets/constant';
 import {toSubsocialAddress} from '@subsocial/utils'
 import SettingsModal from '../modal/SettingsModal';
 import { Menu, Transition } from "@headlessui/react";
-import { useNotificationsModal, useSettingsModal } from '@/store/slices/modalSettingsSlice';
+import { useEnergyModal, useNotificationsModal, useSettingsModal } from '@/store/slices/modalSettingsSlice';
 import { AiOutlineSetting } from 'react-icons/ai';
+
 import { BellOutline, ChannelOutline, HandWaveOutline } from '@/Icons';
 import Notifications from './Notifications';
+import EnergyModal from '../modal/EnergyModal';
 export default function ConnectedProfile() {
    const [isAuthenticated, setisAuthenticated] = useState(false)
    const [isShowSignInModal, setisShowSignInModal] = useState(false)
@@ -24,6 +26,7 @@ export default function ConnectedProfile() {
     const [isShowProfilePop, setisShowProfilePop] = useState(false)
     const {isSettingsModalVisible, toggleSettingsModal } = useSettingsModal()
     const { isNotificationModalVisible,  toggleNotificationsModal} = useNotificationsModal()
+    const {isEnergyModalVisible, toggleIsEnergyModalVisible} = useEnergyModal()
 
    // const [isShowSettingsModal, setisShowSettingsModal] = useState(false)
    const {connectWallet, userWallets, isNoExtension} = useAuthenticate()
@@ -221,6 +224,7 @@ const {shortenTxt} = useTruncateText()
 
        {isSettingsModalVisible  && <SettingsModal  />}
         {isNotificationModalVisible && <Notifications />}
+        {isEnergyModalVisible && <EnergyModal />}
          
     </div>
   )

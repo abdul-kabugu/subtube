@@ -8,6 +8,7 @@ query GetPostBySpace($where: PostWhereInput) {
       image
       body
       title
+      kind
        upvotesCount
        createdAtTime
         updatedAtTime

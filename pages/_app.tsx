@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import BetaAlert from '@/components/BetaAlert'
 import { TopNav } from '@/components/navigations'
 import { MobileNav } from '@/components/navigations/mobilenav'

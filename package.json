@@ -11,6 +11,7 @@
   "dependencies": {
     "@apollo/client": "^3.7.7",
     "@headlessui/react": "^1.7.13",
+    "@livepeer/react": "^2.5.8",
     "@polkadot/api": "^9.12.1",
     "@polkadot/extension-dapp": "^0.44.8",
     "@polkadot/extension-inject": "^0.44.8",
@@ -30,6 +31,7 @@
     "ipfs-http-client": "^60.0.0",
     "moment": "^2.29.4",
     "next": "13.2.4",
+    "nextjs-progressbar": "^0.0.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",

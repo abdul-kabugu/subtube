@@ -14,7 +14,7 @@ import SettingsModal from '../modal/SettingsModal';
 import { Menu, Transition } from "@headlessui/react";
 import { useEnergyModal, useNotificationsModal, useSettingsModal } from '@/store/slices/modalSettingsSlice';
 import { AiOutlineSetting } from 'react-icons/ai';
-
+import {SlEnergy} from 'react-icons/sl'
 import { BellOutline, ChannelOutline, HandWaveOutline } from '@/Icons';
 import Notifications from './Notifications';
 import EnergyModal from '../modal/EnergyModal';
@@ -73,19 +73,22 @@ const {shortenTxt} = useTruncateText()
               }).toString()
           return(
           <div className='flex items-center gap-3 relative'>
-            <div className='w-9 hover:bg-gray-200 rounded-full h-9 flex items-center justify-center cursor-pointer'>
-              <BellOutline className='h-5 w-5' onClick={toggleNotificationsModal} />
+            <div className='w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-800 p-1 cursor-pointer' onClick={toggleIsEnergyModalVisible}>
+         <SlEnergy className='xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-gray-300' />
+         </div>
+            <div className='w-9 hover:bg-gray-800 rounded-full h-9 flex items-center justify-center cursor-pointer'>
+              <BellOutline className='xs:w-4 xs:h-4 sm:h-5 sm:w-5 text-gray-400' onClick={toggleNotificationsModal} />
                
             </div>
   <Link href={`/upload`}>
-             <div className='xs:hidden md:flex items-center gap-2 bg-violet-800 hover:bg-violet-600 text-white leading-6 font-semibold py-1.5 px-3 rounded-lg'>
-              <TbVideoPlus className='cursor-pointer' size={18} />
-               <button>New video</button>
+             <div className='w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-800 p-1 cursor-pointer'>
+              <TbVideoPlus className='cursor-pointer text-gray-400 xs:w-5 xs:h-5 sm:w-6 sm:h-6'  />
+               
              </div>
              </Link>
               <Menu as="div" className="relative ">
               <Menu.Button>
-         <Image src={`data:image/svg+xml;base64,${avatar}`}  width={10} height={10} className="w-9 h-9 cursor-pointer rounded-full" alt='profile pic' />
+         <Image src={`data:image/svg+xml;base64,${avatar}`}  width={10} height={10} className="xs:w-6 xs:h-6 lg:w-7 lg:h-7 cursor-pointer rounded-full" alt='profile pic' />
           </Menu.Button>
           <Transition
               as={Fragment}
@@ -98,16 +101,16 @@ const {shortenTxt} = useTruncateText()
             >
               <Menu.Items
                 as="div"
-                className="absolute right-0 bg-white  shadow-lg  border border-indigo-200  rounded-lg w-[220px] px-4 py-3"
+                className="absolute right-0 bg-black text-gray-400 border-fuchsia-900/50  shadow-lg  border border-indigo-200  rounded-lg w-[220px] px-4 py-3"
               >
                 
                 <Menu.Item>
                   <Link href={`/channel/${subsocialAddress}`}>
                   <div
-                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-indigo-100  px-2 rounded-lg my-3"
+                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-gray-800  px-2 rounded-lg my-3"
                    >
-                    <ChannelOutline className="w-5 h-5" />
-                    <button className=" text-sm capitalize ">
+                    <ChannelOutline className="w-4 h-4" />
+                    <button className=" text-sm capitalize font-semibold ">
                      Your Channel
                     </button>
                   </div>
@@ -116,11 +119,11 @@ const {shortenTxt} = useTruncateText()
               
                  <Menu.Item>
                   <div
-                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-indigo-100  px-2 rounded-lg my-3"
+                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-gray-800  px-2 rounded-lg my-3"
                     onClick={() => openURLInNewTab(`https://polkaverse.com/accounts/${subsocialAddress}`)}
                   >
-                    <AiOutlineSetting className="w-5 h-5" />
-                    <button className=" text-sm capitalize ">
+                    <AiOutlineSetting className="w-4 h-4" />
+                    <button className=" text-sm capitalize font-semibold ">
                       Channel Settings
                     </button>
                   </div>
@@ -128,10 +131,10 @@ const {shortenTxt} = useTruncateText()
 
                 <Menu.Item>
                   <div
-                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-indigo-100  px-2 rounded-lg mt-3"
+                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-gray-800  px-2 rounded-xl mt-3"
                     onClick={handleLogOut}
                   >
-                    <HandWaveOutline className="w-5 h-5" />
+                    <HandWaveOutline className="w-4 h-4" />
                     <button className=" text-sm capitalize ">
                       Sign out
                     </button>

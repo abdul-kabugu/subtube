@@ -28,9 +28,9 @@ export default function VideoQuery({data, loading, error}) {
           return(
             <Link href={`/watch/${post?.id}`} key={i}>
             <div className='flex items-center justify-between mb-2'>
-               <h2 className='font-semibold capitalize text-black/70 '>{post && shortenTxt(post.title, 25)}</h2>
+               <h2 className='font-semibold capitalize text-gray-400 '>{post && shortenTxt(post.title, 25)}</h2>
                  <div className='flex gap-1 items-center'>
-                  <AiOutlineLike size={12} className="text-gray-500" />
+                  <AiOutlineLike size={12} className="text-gray-400" />
                    <p className='text-[14px] text-gray-500'>{post?.upvotesCount}</p>
                  </div>
             </div>

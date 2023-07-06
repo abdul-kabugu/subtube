@@ -27,9 +27,9 @@ export default function CommentCard({comment}) {
       <img  src={`data:image/svg+xml;base64,${avatar}`} className="w-[30px] h-[30px] rounded-full ring-2 object-cover" />
       </Link>
        <div>
-          <div className='flex gap-4'>
+          <div className='flex gap-4 justify-between w-full '>
           <Link href={`/channels/${comment?.createdByAccount?.id}`}>
-  <h3 className='text-sm font-semibold text-black/75'>{comment  && shortenTxt(comment?.createdByAccount.id, 10)}</h3>
+  <h3 className='text-sm font-semibold text-gray-400 font-mono'>{comment  && shortenTxt(comment?.createdByAccount.id, 10)}</h3>
   </Link>
                <p className='text-xs'>{duration.humanize().replace("a ", "")} ago</p>
           </div>

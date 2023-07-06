@@ -18,7 +18,8 @@ const {shortenTxt} = useTruncateText()
   const diffInMilliseconds = currentDate - videoCreatedAt;
 const diffInHours = diffInMilliseconds / (60 * 60 * 1000);
 const duration = moment.duration(diffInHours, 'hours');
-
+// xs:w-[100vw] md:w-[300px]  rounded-lg  flex-grow flex-shrink mb-2 py-1 px-1 md:max-w-[330px] relative border border-fuchsia-900 
+// w-full xs:h-[220px] sm:h-[290px] md:h-[170px]
 const toggleIsDisplayDots = () => {
   isDisplayDots ?  setIsDisplayDots(false) : setIsDisplayDots(true)
 } 
@@ -31,8 +32,8 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
  
   return (
 
-    <div className='xs:w-[100vw] md:w-[300px]  rounded-lg  flex-grow flex-shrink mb-2 py-1 px-1 md:max-w-[330px] relative ' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
-       <div className='  w-full xs:h-[220px] sm:h-[290px] md:h-[170px]'>
+    <div className='flex flex-col w-full border-t-0 sm:max-w-sm rounded-xl h-60 border border-fuchsia-900/50 relative my-2 p-1 font-mono' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
+       <div className='rounded-t-xl h-[80%] object-cover'>
         <Link href={`/watch/${video?.id}`}>
            <Image  src={`${IPFS_GATEWAY}${video?.image}` || `${IPFS_GATEWAY_TWO}${video?.image}`}   alt="video cover" className='w-full h-[100%] object-cover rounded-lg ' width={1200} height={600} />
         </Link> 
@@ -52,7 +53,7 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
            </div>
 
            <div>
-           <Link href={`/watch/${video?.id}`}> <p className='truncate  font-semibold '>{video && shortenTxt(video?.title, 28)}</p></Link>
+           <Link href={`/watch/${video?.id}`}> <p className='truncate  font-semibold text-gray-400 '>{video && shortenTxt(video?.title, 28)}</p></Link>
            <div className='flex gap-3   text-sm'>
            <div className='flex gap-1 text-gray-500'><p className=''>{video?.upvotesCount}</p> <p className='  font-semibold '>like</p></div>
              <p className=' text-gray-500'>{duration.humanize().replace("a ", "")} ago</p>
@@ -68,13 +69,14 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
 
      {video?.kind === "SharedPost" && (
      
-       <div className='absolute top-4 left-1 bg-white w-8 h-8 rounded-full flex items-center justify-center'>
+       <div className='absolute top-4 left-1 bg-white w-7 h-7 rounded-full flex items-center justify-center text-fuchsia-500 animate-pulse'>
           <Tooltip 
        title={`Amplified video`}
        position="right"
        trigger="mouseenter"
+       className='text-gray-400'
        >
-         <p>⭐️</p> 
+         <p>🔥</p> 
          </Tooltip>
          </div>
          

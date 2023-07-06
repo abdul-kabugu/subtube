@@ -5,6 +5,7 @@ import {VideoCard} from '../cards'
 import Image from 'next/image'
 export default function Videos({videos}) {
     const filteredPosts = videos?.filter(post => post.hasOwnProperty("image")  && post?.__typename === "Post"     && post.image !== null)
+     console.log("videos testing", videos)
    console.log("the filtered posts", filteredPosts)
    if(filteredPosts?.length < 1 || !filteredPosts){
     return(

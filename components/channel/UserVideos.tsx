@@ -1,8 +1,8 @@
 // @ts-nocheck
 
 import { Tab } from '@headlessui/react'
-import React from 'react'
-import { AiOutlineExclamation, AiOutlineRetweet } from 'react-icons/ai'
+import {useState} from 'react'
+import { AiOutlineExclamation, AiOutlineRetweet, AiOutlineUser, AiOutlineVideoCamera } from 'react-icons/ai'
 import { HiOutlineVideoCamera } from 'react-icons/hi'
 import AboutUser from './AboutUser'
 import Amplified from './Amplified'
@@ -12,12 +12,16 @@ import { useGetUserData } from '@/Hooks'
 import { useRouter } from 'next/router'
 import VideoCardSkeleton from '../Loder/VideoCardSkeleton'
 import { Error } from '../errors'
+import { AmplifyAlt } from '@/Icons'
 
 export default function UserVideos() {
+  const [currentTab, setcurrentTab] = useState(0)
     const router = useRouter()
     const channelId =  router.query.channelId
     const {userData, isUserDataLoading, isUserDataError} = useGetUserData(channelId)
     console.log("the user data", userData)
+
+  
    if(isUserDataError) {
     return(
       <Error  />
@@ -28,72 +32,40 @@ export default function UserVideos() {
           <VideoCardSkeleton   />
         )
       }
+
+       const getCurrentTab = () => {
+        if(currentTab === 0){
+          return(
+            <Videos videos={userData?.accountById?.posts} />
+          )
+        }else if(currentTab === 1){
+          return(
+            <Amplified  />
+          )
+        } else if(currentTab === 2){
+          return(
+            <AboutUser />
+          )
+        }
+       }
   return (
     <div className='mt-5  w-full '>
         <div>
-            <Tab.Group>
-                <Tab.List className={`flex space-x-1 gap-6 `}> 
-                     <Tab   className={({ selected }) =>
-                classNames(
-                  ' rounded-lg py-1 px-1 leading-5 text-blue-800',
-                  'ring-white ring-opacity-60 ring-offset-2 ring-violet-600/80 focus:outline-none focus:ring-2',
-                  selected
-                    ? 'bg-white shadow'
-                    : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
-                )
-              }>
-                     <div className='flex items-center gap-1' >
-                    <HiOutlineVideoCamera size={16}  />
-                     <p>Videos</p>
-                    </div>
-                     </Tab>
-
-                     <Tab className={({ selected }) =>
-                classNames(
-                  ' rounded-lg py-1 px-1 leading-5 text-blue-800',
-                  'ring-white ring-opacity-60 ring-offset-2 ring-violet-600/80 focus:outline-none focus:ring-2',
-                  selected
-                    ? 'bg-white shadow'
-                    : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
-                )
-              }>
-                     <div className='flex items-center gap-1'>
-                     <AiOutlineRetweet  />
-                     <p>Amplified</p>
-                    </div>
-                     </Tab>
-
-                     <Tab className={({ selected }) =>
-                classNames(
-                  ' rounded-lg py-1 px-1 leading-5 text-blue-800',
-                  'ring-white ring-opacity-60 ring-offset-2 ring-violet-600/80 focus:outline-none focus:ring-2',
-                  selected
-                    ? 'bg-white shadow'
-                    : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
-                )
-              }>
-                     <div className='flex items-center gap-1'>
-                       <AiOutlineExclamation  />
-                     <p>About</p>
-                    </div>
-                     </Tab>
-                </Tab.List>
-                
-                <Tab.List>
-                    <Tab.Panel>
-                         <Videos  videos = {userData?.accountById?.posts}  />
-                    </Tab.Panel>
-                     <Tab.Panel>
-                     <Amplified channelId ={channelId}  />
-
-                     </Tab.Panel>
-
-                     <Tab.Panel>
-                         <AboutUser  />
-                     </Tab.Panel>
-                </Tab.List>
-                
-            </Tab.Group>
+       <div className='flex gap-5'>
+          <div className={`flex gap-2 items-center bg-gray-800 px-3 py-1 rounded-lg hover:bg-gray-700 ${currentTab === 0 && "bg-gray-600"} cursor-pointer`} onClick={() => setcurrentTab(0)}>
+            <button>Videos</button>
+             <AiOutlineVideoCamera className='w-3.5' />
+          </div>
+          <div  className={`flex gap-2 items-center bg-gray-800 px-3 py-1 rounded-lg hover:bg-gray-700 ${currentTab === 1 && "bg-gray-600"} cursor-pointer`} onClick={() => setcurrentTab(1)}>
+            <button>Amplified</button>
+             <AmplifyAlt className='w-3.5 h-3.5 text-white' />
+          </div>
+          <div  className={`flex gap-2 items-center bg-gray-800 px-3 py-1 rounded-lg hover:bg-gray-700 ${currentTab === 2 && "bg-gray-700"} cursor-pointer`} onClick={() => setcurrentTab(2)}>
+            <button>About</button>
+             <AiOutlineUser />
+          </div>
+       </div>
+        {getCurrentTab()}
         </div>
     </div>
   )

@@ -6,6 +6,7 @@ import { useCreateComment, useGetPostComments } from '@/Hooks';
 import CommentCard from '../cards/CommentCard';
 import { AiOutlineSend } from 'react-icons/ai';
 import { toSubsocialAddress } from '@subsocial/utils';
+import { SendAlt } from '@/Icons';
 
 export default function VideoComments({ video}) {
     const [isShowComment, setisShowComment] = useState(false)
@@ -32,12 +33,12 @@ export default function VideoComments({ video}) {
           <div className=''>
               <h1 className='text-xl font-semibold my-4'>Comments</h1>
               <div className='flex items-center gap-4'>
-    <img src={`data:image/svg+xml;base64,${avatar}`} className="w-[33px] h-[33px] ring-2 rounded-full " />
-      <div className='w-[100%] py-1 xs:px-1 md:px-3 border border-gray-300 rounded-md flex items-center  justify-between'>
+    <img src={`data:image/svg+xml;base64,${avatar}`} className="w-[33px] h-[33px] ring-1 ring-fuchsia-900/50 rounded-full " />
+      <div className='w-[100%] py-1 xs:px-1 md:px-3 border border-fuchsia-900/50 rounded-md flex items-center  justify-between'>
         <input   value={commentTxt} onChange={e => setcommentTxt(e.target.value)}  placeholder="I like this video"
-          className='w-[85%] focus:outline-none py-1'
+          className='w-[85%] focus:outline-none py-1 bg-inherit placeholder:text-gray-500 text-gray-400'
         />
-        <AiOutlineSend  className={`xs:w-5 xs:h-5 md:w-7 md:h-7 cursor-pointer text-black/80 ${isCommenting && "text-gray-600"} `} onClick={() => commentToPost(commentTxt, video?.postById?.id)} />
+        <SendAlt className={`xs:w-5 xs:h-5 md:w-7 md:h-7 cursor-pointer text-gray-600 ${isCommenting && "text-gray-600"} `} onClick={() => commentToPost(commentTxt, video?.postById?.id)} />
 
       </div>
               </div>

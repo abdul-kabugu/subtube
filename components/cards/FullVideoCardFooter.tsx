@@ -7,6 +7,7 @@ import { RiShareForward2Line, RiShareForwardLine } from 'react-icons/ri'
 import { Dialog, Transition } from '@headlessui/react'
 import ShareButtons from './ShareButtons'
 import TipUser from './TipUser'
+import { AmplifyAlt, DislikeAlt, LikeAlt } from '@/Icons'
 export default function FullVideoCardFooter({video}) {
     const [isShowShareToSocial, setisShowShareToSocial] = useState(false)
     const [isShowTipModal, setisShowTipModal] = useState(false)
@@ -36,28 +37,28 @@ export default function FullVideoCardFooter({video}) {
   return (
     <div className='mt-3 lg:px-6 w-full  overflow-x-hidden'>
       <div className='flex xs:gap-2 gap-4'>
-        <div className={`${isThisLiked && "text-violet-500"} flex gap-1 py-1 xs:px-1  lg:px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200`} onClick={() => handleLike(video?.postById?.id)}>
-        <AiOutlineLike  size={17} />
+        <div className={`${isThisLiked && "text-violet-500"} flex gap-1 py-1 xs:px-1  lg:px-3 rounded-md  cursor-pointer font-semibold text-gray-400 items-center hover:bg-gray-800`} onClick={() => handleLike(video?.postById?.id)}>
+        <LikeAlt className='w-5 h-5' />
              <button>Like  {video?.postById?.upvotesCount && video?.postById?.upvotesCount}</button>
         </div>
 
-        <div className={`${isThisDesliked && "text-violet-500"} flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200`} onClick={() => handleDeslike(video?.postById?.id)}>
-           <AiOutlineDislike size={17}  />
+        <div className={`${isThisDesliked && "text-violet-500"} flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-gray-400 items-center hover:bg-gray-800`} onClick={() => handleDeslike(video?.postById?.id)}>
+           <DislikeAlt className='w-5 h-5' />
              <button> Dislike {video?.postById?.downvotesCount && video?.postById?.downvotesCount}</button>
         </div>
 
-        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200 xs:hidden md:flex' onClick={() => handleAmplify(video?.postById?.id, video)}>
-            <AiOutlineRetweet size={17} />
+        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-gray-400 items-center hover:bg-gray-800 xs:hidden md:flex' onClick={() => handleAmplify(video?.postById?.id, video)}>
+            <AmplifyAlt className='w-5 h-5' />
              <button> Amplify</button>
         </div>
 
-        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200 xs:hidden md:flex' onClick={() => setisShowTipModal(true)}>
-        <AiOutlineDollar size={17} />
+        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-gray-400 items-center hover:bg-gray-800 xs:hidden md:flex' onClick={() => setisShowTipModal(true)}>
+        <AiOutlineDollar size={19} />
              <button> Tip</button>
         </div>
 
-        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-black/75 items-center hover:bg-gray-200' onClick={() => setisShowShareToSocial(true)}>
-           <RiShareForwardLine size={17}  />
+        <div className='flex gap-1 py-1 px-3 rounded-md  cursor-pointer font-semibold text-gray-400 items-center hover:bg-gray-800' onClick={() => setisShowShareToSocial(true)}>
+           <RiShareForwardLine size={19}  />
              <button> Share</button>
         </div>
       </div>

@@ -1,3 +1,4 @@
+
 // @ts-nocheck
 
 import { fakeArrayTwo, IPFS_GATEWAY } from '@/assets/constant'
@@ -8,17 +9,20 @@ import {useState, useEffect, useContext} from 'react'
 import { FullVideoCard } from '../cards'
 import VideoCardSkeleton from '../Loder/VideoCardSkeleton'
 import VideoFullSkeleton from '../Loder/VideoFullSkeleton'
-import RelatedVideos from './RelatedVideos'
+import { RelatedVideos } from '../watch'
 import Identicon from 'identicon.js';
 import Link from 'next/link'
 import FullVideoCardFooter from '../cards/FullVideoCardFooter'
-import VideoComments from './VideoComments'
+import VideoComments from '../watch/VideoComments'
 import { Error } from '../errors'
 import { SubsocialContext } from '@/subsocial/provider'
 import {toSubsocialAddress} from '@subsocial/utils'
 import Image from 'next/image'
-
-export default function WatchMain({vidId}) {
+import LiveChat from './LiveChat'
+import { Resource } from '@subsocial/resource-discussions'
+import grill from '@subsocial/grill-widget'
+import { BsChatDots } from 'react-icons/bs'
+export default function LivePage({vidId}) {
   const [isSubscriber, setisSubscriber] = useState(true)
   const [isAuthenticated, setisAuthenticated] = useState(false)
   const {data, loading, error} = useGetVideoById(vidId)
@@ -66,8 +70,41 @@ export default function WatchMain({vidId}) {
     //  flex  gap-2    md:px-0 
      const avatarUrl = data?.postById?.createdByAccount.profileSpace?.image
     console.log("the avatar url", avatarUrl)
+
+      /* 
+      =================================
+       Function for initalizing grill
+      =================================
+      */
+     const showGrill = () => {
+      grill.init({
+        widgetElementId: 'grill',
+        theme : "dark",
+        hub: { id: "1002" },
+        channel: {
+            type: 'resource',
+            resource: new Resource({
+              schema: 'social',
+              app: 'twitter',
+              resourceType: 'profile',
+              resourceValue: { id: 'elonmusk' },
+            }),
+            settings: {
+              enableBackButton: false,
+              enableLoginButton: false,
+              enableInputAutofocus: true,
+            },
+            metadata: {
+              title: 'Elon Musk',
+              body: 'Onchain discussion about Elon Musk',
+              
+            },
+
+}})
+    }
+  
   return (
-    <div className='flex min-h-screen text-zinc-500 flex-col  bg-black font-mono justify-center items-center w-full  lg:px-2'>
+    <div className='flex min-h-screen text-zinc-500 flex-col   font-mono lg:justify-center lg:items-center  relative lg:px-2'>
       <div className='flex gap-3 justify-center'>
    <div>
       <FullVideoCard video={data}  />
@@ -97,9 +134,16 @@ export default function WatchMain({vidId}) {
             <VideoComments   video = {data}   />
        </div>
       </div>
-        <RelatedVideos   />
+        <LiveChat video = {data}  />
     </div>
+   
+     <div className='absolute top-[80vh] z-10 bg-gray-600 w-[100px] h-[100px] xl:hidden right-4 cursor-pointer' onClick={() => showGrill()}>
+        <BsChatDots   />
+     </div>
+     <div id="grill" className='h-[90vh] absolute top-6 '></div>
+
     </div>
  
   )
 }
+

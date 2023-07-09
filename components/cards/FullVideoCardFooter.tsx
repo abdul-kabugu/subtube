@@ -90,10 +90,10 @@ export default function FullVideoCardFooter({video}) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-black border border-fuchsia-900/30 p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
+                    className="text-lg font-medium leading-6 "
                   >
                     Share
                   </Dialog.Title>
@@ -137,12 +137,12 @@ export default function FullVideoCardFooter({video}) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full border border-fuchsia-700/30  max-w-md transform overflow-hidden rounded-2xl bg-black py-2 px-4 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
+                    className="text-lg font-medium leading-6 "
                   >
-                    Tip User
+                    Support the createor
                   </Dialog.Title>
                   <Dialog.Description className={`mt-3`}>
                   <TipUser   video={video}   />

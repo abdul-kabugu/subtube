@@ -9,7 +9,7 @@ import Identicon from 'identicon.js';
 import { useTruncateText } from '@/Hooks';
 import {RxDotsVertical} from 'react-icons/rx'
 import { Tooltip } from 'react-tippy';
-export default function VideoCard({video}) {
+export default function LiveVideoCard({video}) {
   const [isDisplayDots, setIsDisplayDots] = useState(false)
   const [currentTime, setCurrentTime] = useState(new Date());
   const currentDate = new Date();
@@ -23,7 +23,7 @@ const duration = moment.duration(diffInHours, 'hours');
 const toggleIsDisplayDots = () => {
   isDisplayDots ?  setIsDisplayDots(false) : setIsDisplayDots(true)
 } 
- 
+  console.log("the video from its file", video)
 const avatarUrl = video?.createdByAccount?.profileSpace?.image
 const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this  is auto generated avatr", {
   size: 420, // adjust the size of the avatar as per your requirement
@@ -32,10 +32,10 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
  
   return (
 
-    <div className='flex flex-col w-full border-t-0 sm:max-w-sm rounded-xl md:h-60 border border-fuchsia-900/60 relative my-2 p-1 font-mono' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
+    <div className='flex flex-col w-full border-t-0 sm:max-w-sm rounded-xl h-60 border border-fuchsia-900/50 relative my-2 p-1 font-mono' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
        <div className='rounded-t-xl h-[80%] object-cover'>
-        <Link href={`/watch/${video?.id}`}>
-           <Image  src={`${IPFS_GATEWAY}${video?.image}` || `${IPFS_GATEWAY_TWO}${video?.image}`}   alt="video cover" className='w-full h-[100%] xs:max-h-[250px] object-cover rounded-lg border border-fuchsia-900/10 ' width={1200} height={600} />
+        <Link href={`/live/${video?.id}`}>
+           <Image  src={`${IPFS_GATEWAY}${video?.image}` || `${IPFS_GATEWAY_TWO}${video?.image}`}   alt="video cover" className='w-full h-[100%] object-cover rounded-lg border border-fuchsia-900/10 ' width={1200} height={600} />
         </Link> 
         </div>
 

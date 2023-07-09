@@ -183,17 +183,17 @@ export default function UploadForm({file,setfile ,  selectedThumbnail, setSelect
    const getCurrentState = () =>  {
     if(isThumbnailUploading) {
       return(
-      <button className='py-1.5 px-4 rounded-md bg-violet-700 font-semibold text-white' disabled={true}>Uploading Thumbanail</button>
+      <button className='py-1.5 px-4 rounded-md bg-fuchsia-700 font-semibold text-white' disabled={true}>Uploading Thumbanail</button>
       )
  
     }else if(isLoading) {
       return(
-      <button className='py-1.5 px-4 rounded-md bg-violet-700 font-semibold text-white' disabled={true}>Uploading Video</button>
+      <button className='py-1.5 px-4 rounded-md bg-fuchsia-700 font-semibold text-white' disabled={true}>Uploading Video</button>
       )
  
     }else {
       return(
-      <button className='py-1.5 px-4 rounded-md bg-violet-700 font-semibold text-white' onClick={() => handleCreatePost()}>Upload video</button>
+      <button className='py-1.5 px-4 rounded-md bg-fuchsia-700 font-semibold text-white' onClick={() => handleCreatePost()}>Upload video</button>
       )
 
     }
@@ -204,6 +204,7 @@ export default function UploadForm({file,setfile ,  selectedThumbnail, setSelect
 
   return (
     <div className='flex items-center justify-center  min-h-screen'>
+      
       <div className='xs:w-[100%] md:w-[100%] xl:w-5/6 xs:flex-col md:flex-row flex  gap-6'>
         <div className='xs:w-[100%] flex-1 '>
           <div className='  flex-1 flex flex-col gap-2  mb-3'>

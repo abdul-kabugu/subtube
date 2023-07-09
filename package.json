@@ -18,6 +18,8 @@
     "@polkadot/ui-keyring": "^0.85.5",
     "@rajesh896/video-thumbnails-generator": "^2.3.9",
     "@subsocial/api": "^0.8.7-beta.2",
+    "@subsocial/grill-widget": "^0.0.8",
+    "@subsocial/resource-discussions": "^0.0.3",
     "@subsocial/utils": "^0.8.7-beta.2",
     "@types/node": "18.15.5",
     "@types/react": "18.0.28",

@@ -16,7 +16,7 @@ export default function CommentCard({comment}) {
     const diffInMilliseconds = currentDate - postCreatedAt;
     const diffInHours = diffInMilliseconds / (60 * 60 * 1000);
     const duration = moment.duration(diffInHours, 'hours');
-
+  console.log("the commetiko", comment)
     const avatar = new Identicon(comment?.createdByAccount?.id|| "bla blah yhis  is  another  random genetrated icon"        , {
         size: 420, // adjust the size of the avatar as per your requirement
         format: 'svg' // choose the format of the avatar, such as png or svg
@@ -34,7 +34,7 @@ export default function CommentCard({comment}) {
                <p className='text-xs'>{duration.humanize().replace("a ", "")} ago</p>
           </div>
 
-          <h4 className='text-lg text-black/80'>{comment?.body}</h4>
+          <h4 className='text-lg '>{comment?.body}</h4>
 
            <div className='mt-1 flex gap-4'>
               <div className='flex gap-1 cursor-pointer items-center' onClick={() => likePost(comment?.id)}>

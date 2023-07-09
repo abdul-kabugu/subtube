@@ -235,5 +235,61 @@ export  const IPFS_GATEWAY_TWO = "https://gateway.ipfscdn.io/ipfs/"
 export const SPACE_ID = "11414"
 
  export const  fakeArray = [1, 2, 3, 4, 5, 6, 7,8,9,10,11,12]
- export const  fakeArrayTwo = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+ export const  fakeArrayTwo = [1, 2, 3, 4, 5, 6, 7, 8]
  export const livepeer_key = process.env.NEXT_PUBLIC_LIVEPEER_KEY
+
+   
+export const tipsTires = [
+  {
+    title: "1 DOT",
+    emoji: "👍",
+    amount: 1,
+  },
+
+  {
+    title: "5 DOT",
+    emoji: "🙌",
+    amount: 5,
+  },
+  {
+    title: "10 DOT",
+    emoji: "🍺",
+    amount: 10,
+  },
+
+  {
+    title: "15 DOT",
+    emoji: "🎉",
+    amount: 15,
+  },
+  {
+    title: "20 DOT",
+    emoji: "💰",
+    amount: 20,
+  },
+
+  {
+    title: "30 DOT",
+    emoji: "🏆",
+    amount: 30,
+  },
+  {
+    title: "50 DOT",
+    emoji: "🥂",
+    amount: 50,
+  },
+  {
+    title: "70 DOT",
+    emoji: "🥇",
+    amount: 70,
+  },
+  {
+    title: "100 DOT",
+    emoji: "💎",
+    amount: 100,
+  },
+];
+
+export const sponsorPeriods = [
+  "One Time", "Weekly", "Monthly"
+]

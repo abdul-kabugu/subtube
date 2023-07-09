@@ -20,7 +20,8 @@ export const useDiscoverTrendingVideos = () =>  {
           ]
         }
       
-    }
+    },
+    pollInterval: 500,
   })
 
   return{

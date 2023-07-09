@@ -14,8 +14,9 @@ const useGetPostComments = (id) =>  {
                   }
             }
            }
-        }
-    })
+        },
+        pollInterval: 500,
+    });
 
     return {
         postComments,

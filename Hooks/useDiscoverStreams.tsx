@@ -5,14 +5,11 @@ import {useQuery} from '@apollo/client'
 import { GET_POSTS_BY_SPACE_ID } from '../graphql/fragments/getPostsBySpaceId'
 
 
-  const  useDiscoverVideos = () =>  {
+  const  useDiscoverStreams = () =>  {
    const {data : posts , loading : isPostsLoading, error: isPostsError } = useQuery(GET_POSTS_BY_SPACE_ID, {
     variables : {
       where : {
-        "space" : {
-          
-          "id_eq": SPACE_ID
-        }
+        "id_eq": "38887"
       }
     },
     pollInterval: 500,
@@ -25,4 +22,4 @@ import { GET_POSTS_BY_SPACE_ID } from '../graphql/fragments/getPostsBySpaceId'
    }
 }
 
-  export default useDiscoverVideos
+  export default useDiscoverStreams

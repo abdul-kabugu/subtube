@@ -19,10 +19,12 @@ import { usePinToIpfs } from "./usePinToIpfs";
 import { UseSubscribe } from "./useSubscribe";
 import useTruncateText from "./useTruncateText";
 import { useUpdateProfile } from "./useUpdateProfile";
-
+import useCreateLiveStream from "./useCreateLiveStream";
+import useDiscoverStreams from "./useDiscoverStreams";
 export {
     useAuthenticate, useTruncateText, useCreateSpace, useCreatePost, useDiscoverVideos,
     useGetVideoById, useGetPostComments, useCreateComment, useReactions, UseSubscribe,
     useGetUserData, useAmplify, useCreateProfile, useDonate, usePinToIpfs, useGetLatestVidoes,
-    useGetPopulaVideos, useGetInterestedVideos, useUpdateProfile, useGetAccountSpaces
+    useGetPopulaVideos, useGetInterestedVideos, useUpdateProfile, useGetAccountSpaces, useCreateLiveStream,
+    useDiscoverStreams
 }

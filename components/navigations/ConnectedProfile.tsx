@@ -7,7 +7,7 @@ import Identicon from 'identicon.js';
 import { RiNotification3Line } from 'react-icons/ri';
 import {TbVideoPlus} from 'react-icons/tb'
 import Link from 'next/link';
-import { CiLogout, CiUser } from 'react-icons/ci';
+import { CiLogout, CiStreamOn, CiUser, CiWallet } from 'react-icons/ci';
 import { profilePop } from '@/assets/constant';
 import {toSubsocialAddress} from '@subsocial/utils'
 import SettingsModal from '../modal/SettingsModal';
@@ -27,7 +27,7 @@ export default function ConnectedProfile() {
     const {isSettingsModalVisible, toggleSettingsModal } = useSettingsModal()
     const { isNotificationModalVisible,  toggleNotificationsModal} = useNotificationsModal()
     const {isEnergyModalVisible, toggleIsEnergyModalVisible} = useEnergyModal()
-
+   const [isShowPostType, setisShowPostType] = useState(false)
    // const [isShowSettingsModal, setisShowSettingsModal] = useState(false)
    const {connectWallet, userWallets, isNoExtension} = useAuthenticate()
 const {shortenTxt} = useTruncateText()
@@ -80,12 +80,55 @@ const {shortenTxt} = useTruncateText()
               <BellOutline className='xs:w-4 xs:h-4 sm:h-5 sm:w-5 text-gray-400' onClick={toggleNotificationsModal} />
                
             </div>
-  <Link href={`/upload`}>
-             <div className='w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-800 p-1 cursor-pointer'>
+ {/*} <Link href={`/upload`}>*/}
+ <Menu as="div" className="relative ">
+           <Menu.Button>
+            <div className='w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-800 p-1 cursor-pointer'>
               <TbVideoPlus className='cursor-pointer text-gray-400 xs:w-5 xs:h-5 sm:w-6 sm:h-6'  />
-               
-             </div>
-             </Link>
+              </div>
+              </Menu.Button>
+              <Transition
+              as={Fragment}
+              enter="transition ease-out duration-300"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
+            >
+              <Menu.Items className={`absolute right-0 bg-gray-800 font-thin border-gray-600 shadow-lg  border   rounded-lg w-[180px] px-2 py-1"`}>
+              <Menu.Item>
+                  <Link href={`/upload`}>
+                  <div
+                    className="flex items-center gap-3 cursor-pointer  py-2 hover:bg-gray-700  px-2 rounded-lg my-3"
+                   >
+                  <TbVideoPlus className='cursor-pointer text-gray-400 xs:w-5 xs:h-5 sm:w-6 sm:h-6'  />
+
+                    <p className="font-semibold text-white ">
+                     Upload
+                    </p>
+                  </div>
+                  </Link>
+                </Menu.Item>
+
+                <Menu.Item>
+                  <Link href={`/go-live`}>
+                  <div
+                    className="flex items-center gap-3 cursor-pointer  py-2 hover:bg-gray-700  px-2 rounded-lg my-3"
+                   >
+                  <CiStreamOn className='cursor-pointer text-gray-400 xs:w-5 xs:h-5 sm:w-6 sm:h-6'  />
+
+                    <p className="font-semibold text-white ">
+                     Go Live
+                    </p>
+                  </div>
+                  </Link>
+                </Menu.Item>
+              </Menu.Items>
+            </Transition>
+          </Menu>    
+             
+          {/*}   </Link>*/}
               <Menu as="div" className="relative ">
               <Menu.Button>
          <Image src={`data:image/svg+xml;base64,${avatar}`}  width={10} height={10} className="xs:w-6 xs:h-6 lg:w-7 lg:h-7 cursor-pointer rounded-full" alt='profile pic' />
@@ -99,15 +142,15 @@ const {shortenTxt} = useTruncateText()
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items
+               <Menu.Items
                 as="div"
-                className="absolute right-0 bg-black text-gray-400 border-fuchsia-900/50  shadow-lg  border border-indigo-200  rounded-lg w-[220px] px-4 py-3"
+                className="absolute right-0 bg-gray-800 text-gray-400 border-fuchsia-900/50  shadow-lg  border border-gray-700  rounded-lg w-[220px] px-2 py-2"
               >
                 
                 <Menu.Item>
                   <Link href={`/channel/${subsocialAddress}`}>
                   <div
-                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-gray-800  px-2 rounded-lg my-3"
+                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-gray-700  px-2 rounded-lg my-3"
                    >
                     <ChannelOutline className="w-4 h-4" />
                     <button className=" text-sm capitalize font-semibold ">
@@ -119,7 +162,7 @@ const {shortenTxt} = useTruncateText()
               
                  <Menu.Item>
                   <div
-                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-gray-800  px-2 rounded-lg my-3"
+                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-gray-700  px-2 rounded-lg my-3"
                     onClick={() => openURLInNewTab(`https://polkaverse.com/accounts/${subsocialAddress}`)}
                   >
                     <AiOutlineSetting className="w-4 h-4" />
@@ -131,7 +174,7 @@ const {shortenTxt} = useTruncateText()
 
                 <Menu.Item>
                   <div
-                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-gray-800  px-2 rounded-xl mt-3"
+                    className="flex items-center gap-2 cursor-pointer  py-2 hover:bg-gray-700  px-2 rounded-xl mt-3"
                     onClick={handleLogOut}
                   >
                     <HandWaveOutline className="w-4 h-4" />
@@ -153,8 +196,10 @@ const {shortenTxt} = useTruncateText()
       {currentUserProfile ?(
         <ConnectedUser  />
       ): 
-         <button className='bg-violet-800 xs:py-0.5 md:py-1.5 xs:px-2 md:px-4 rounded-xl text-white md:font-semibold capitalize' onClick={handleConnectWallet}>connect wallet</button>
-
+       <div className='flex gap-2 items-center cursor-pointer bg-fuchsia-700 xs:py-0.5 md:py-1.5 xs:px-2 md:px-4 rounded-xl ' onClick={handleConnectWallet}>
+        <CiWallet   className='text-white' size={23} />
+         <button className='  text-white md:font-semibold capitalize' >Sign In</button>
+      </div>
          
         
 
@@ -184,15 +229,15 @@ const {shortenTxt} = useTruncateText()
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-black border border-fuchsia-900/40 p-4 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900 "
+                    className="text-lg  leading-6 font-thin "
                   >
                     Sign-In
                   </Dialog.Title>
                   <div className="mt-2">
-                    <h1 className='leading-4 text-gray-700 mb-5'>Click on your account to Sign In</h1>
+                    <h1 className='leading-4 font-thin mb-5'>Click on your account to Sign In</h1>
                        
                       { userWallets ?  userWallets?.map((wallet, i) => {
                         //https://nftcoders.com/avatar/avatar-cool.svg
@@ -201,7 +246,7 @@ const {shortenTxt} = useTruncateText()
                           format: 'svg' // choose the format of the avatar, such as png or svg
                         }).toString()
                         return(
-                          <div key={i} className="flex items-center justify-between mb-5 cursor-pointer hover:bg-gray-200 py-2 px-3 rounded-lg " onClick={() => handleSaveLogins(wallet)}>
+                          <div key={i} className="flex items-center justify-between mb-5 cursor-pointer border border-gray-700 hover:bg-gray-800 font-mono py-2 px-3 rounded-lg " onClick={() => handleSaveLogins(wallet)}>
                             <div className='flex items-center gap-3'>
                               <Image   src={`data:image/svg+xml;base64,${avatar}`} className="w-8 rounded-full" width={10} height={10} />
                                <p className='leading-7'>{wallet?.meta?.name}</p>

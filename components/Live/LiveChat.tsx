@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import {useState, useEffect} from 'react'
 import grill from '@subsocial/grill-widget'
 import { SPACE_ID } from '@/assets/constant'

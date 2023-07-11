@@ -1,17 +1,3 @@
-/*@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.video-react .video-react-big-play-button {
-    background-color: #6d28d9  !important; 
-    border: 1px !important; 
-     border-color: #8b5cf6 !important;
-    /*!important;
-    
-}*/
-
-/* New styles from our new ui  */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -39,5 +25,6 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
 
 

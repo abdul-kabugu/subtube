@@ -67,7 +67,7 @@ export default function WatchMain({vidId}) {
      const avatarUrl = data?.postById?.createdByAccount.profileSpace?.image
     console.log("the avatar url", avatarUrl)
   return (
-    <div className='flex min-h-screen text-zinc-500 flex-col  bg-black font-mono justify-center items-center w-full  lg:px-2'>
+    <div className='flex min-h-screen text-zinc-500 flex-col bg-inherit font-mono justify-center items-center w-full  lg:px-2'>
       <div className='flex gap-3 justify-center'>
    <div>
       <FullVideoCard video={data}  />

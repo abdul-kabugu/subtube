@@ -47,6 +47,33 @@ export default function LivePage({vidId}) {
       console.log("Creator id", data?.postById?.createdByAccount?.id, "my id",connectedUser )
 
     }, [ api, isReady])
+
+    useEffect(() => {
+      grill.init({
+        widgetElementId: 'grill',
+        theme : "dark",
+        hub: { id: "1026" },
+        channel: {
+            type: 'resource',
+            resource: new Resource({
+              schema: 'social',
+              app: 'frentube',
+              resourceType: 'profile',
+              resourceValue: { id: 'elonmusk' },
+            }),
+            settings: {
+              enableBackButton: false,
+              enableLoginButton: false,
+              enableInputAutofocus: true,
+            },
+            metadata: {
+              title: 'Live chat',
+              body: "frentube live chat",
+              
+            },
+    
+    }})
+    }, [])
     const avatar = new Identicon(data?.postById?.createdByAccount?.id || "blalabalalalala cosome created testxsts", {
       size: 420, // adjust the size of the avatar as per your requirement
       format: 'svg' // choose the format of the avatar, such as png or svg
@@ -76,32 +103,7 @@ export default function LivePage({vidId}) {
        Function for initalizing grill
       =================================
       */
-     const showGrill = () => {
-      grill.init({
-        widgetElementId: 'grill',
-        theme : "dark",
-        hub: { id: "1002" },
-        channel: {
-            type: 'resource',
-            resource: new Resource({
-              schema: 'social',
-              app: 'twitter',
-              resourceType: 'profile',
-              resourceValue: { id: 'elonmusk' },
-            }),
-            settings: {
-              enableBackButton: false,
-              enableLoginButton: false,
-              enableInputAutofocus: true,
-            },
-            metadata: {
-              title: 'Elon Musk',
-              body: 'Onchain discussion about Elon Musk',
-              
-            },
-
-}})
-    }
+      
   
   return (
     <div className='flex min-h-screen text-zinc-500 flex-col   font-mono lg:justify-center lg:items-center  relative lg:px-2'>
@@ -131,16 +133,14 @@ export default function LivePage({vidId}) {
           </div>
 
            <FullVideoCardFooter video = {data}   />
-            <VideoComments   video = {data}   />
+            {/*<VideoComments   video = {data}   />*/}
        </div>
       </div>
         <LiveChat video = {data}  />
     </div>
    
-     <div className='absolute top-[80vh] z-10 bg-gray-600 w-[100px] h-[100px] xl:hidden right-4 cursor-pointer' onClick={() => showGrill()}>
-        <BsChatDots   />
-     </div>
-     <div id="grill" className='h-[90vh] absolute top-6 '></div>
+     
+     <div id="grill" className='h-[90vh] absolute top-6 bg-red-600 xl:hidden '></div>
 
     </div>
  

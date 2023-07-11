@@ -12,7 +12,7 @@ export default function SetuInstructions() {
             <p className='font-thin'>4.  Add starting Time and ending time .</p>
             <p className='font-thin'>5.Once the placeholder is uploaded, we will provide you with a streamer configuration that consists of a Server URL (RTMP) and a Stream Key.  </p>
              <p className='font-semibold my-3'>Enter the configuration in your streaming software eg ORBIS.</p>
-              <Image  src={`/img/live-example-2.jpg`} width={1200} height={600} alt='example'    />
+              <Image  src={`/img/live-example-3.jpg`} width={1200} height={600} alt='example'    />
         </div>
         </div>
   )

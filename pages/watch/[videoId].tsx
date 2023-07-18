@@ -26,7 +26,7 @@ export default function videoId({data, vidId, loading, error}) {
 <meta property="og:description" content={data?.postById?.title} key="ogdesc" />
         </Head>
      
-    <div className='   max-w-full'>
+    <div className='   max-w-full max-h-screen bg-black/95'>
       <WatchMain  vidId={vidId} />
     </div>
     

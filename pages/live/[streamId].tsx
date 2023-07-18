@@ -26,7 +26,7 @@ export default function streamId({data, vidId, loading, error}) {
 <meta property="og:description" content={data?.postById?.title} key="ogdesc" />
         </Head>
      
-    <div className=' '>
+    <div className='min-h-screen bg-black '>
       <LivePage  vidId={vidId} />
     </div>
     

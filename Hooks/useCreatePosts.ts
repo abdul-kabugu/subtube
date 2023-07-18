@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext } from "react";
 import polkadotjs from "../subsocial/wallets/polkadotjs";
 import { SubsocialContext } from '../subsocial/provider'
-import { SPACE_ID } from "../assets/constant";
+import { APP_ID, SPACE_ID } from "../assets/constant";
 import {IpfsContent, OptionBool} from '@subsocial/api/substrate/wrappers'
 import { usePinToIpfs } from "./usePinToIpfs";
 
@@ -31,7 +31,7 @@ useEffect(() => {
                 image: cover,
                 tags: [tags],
                  body: video,
-                 appId : "frentube_1"
+                 appId : APP_ID
             })
        
          const postCid  = await uploadToIpfs(postContents)

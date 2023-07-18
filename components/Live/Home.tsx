@@ -23,7 +23,7 @@ export default function Home() {
        }
 
   return (
-    <div>
+    <div className='flex gap-3 flex-wrap' >
         {filteredPosts?.map((video, i) =>  {
       return(
        <LiveVideoCard key={i} video = {video}     />

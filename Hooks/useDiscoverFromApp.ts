@@ -5,23 +5,23 @@ import {useQuery} from '@apollo/client'
 import { GET_POSTS_BY_SPACE_ID } from '../graphql/fragments/getPostsBySpaceId'
 
 
-  const  useDiscoverStreams = () =>  {
-   const {data : posts , loading : isPostsLoading, error: isPostsError } = useQuery(GET_POSTS_BY_SPACE_ID, {
+  export  const useDiscoverFromApp = () =>  {
+   const {data :posts , loading : isPostsLoading, error: isPostsError } = useQuery(GET_POSTS_BY_SPACE_ID, {
     variables : {
-      "where": {
-        "experimental_jsonContains": {
-          "appId" : "frentube_Live_1"
-        }
-      }
+        where: {
+            "experimental_jsonContains": {
+              "appId" : "Frentube_3"
+            }
+          }
     },
     pollInterval: 500,
    })
 
    return{
-    posts,
+      posts,
     isPostsLoading,
     isPostsError
    }
 }
 
-  export default useDiscoverStreams
+  

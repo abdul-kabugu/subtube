@@ -71,10 +71,10 @@ useEffect(() => {
   }
  
   return (
-    <div className={` relative xs:absolute xs:h-[75vh] md:min-h-screen xl:h-[90vh] right-3 xl:static  xl:w-[23vw] `}>
+    <div className={` relative xs:absolute xs:h-[75vh] md:min-h-screen xl:h-[90vh] right-3 xl:static  xl:w-[23vw]  z-10 `}>
          <div id="grill" className={`${! isShowChat && "xs:hidden xl:block"} xs:h-[72vh] xl:h-[90vh] `}></div>
-            <div className='absolute xs:-bottom-3 md:bottom-16 xs:right-2 bg-gray-800 cursor-pointer xs:w-12 xs:h-12 w-20 h-20 rounded-full flex items-center justify-center xl:hidden' onClick={toggleIsShowChat}>
-              <BsChatDots  className='w-7 h-7 text-gray-400'  />
+            <div className='absolute xs:-bottom-3 md:bottom-16 xs:right-2 bg-gray-800 cursor-pointer  xs:w-12 xs:h-12 w-20 h-20 rounded-full flex items-center justify-center xl:hidden' onClick={toggleIsShowChat}>
+              <BsChatDots  className='w-7 h-7 text-gray-400 '  />
             </div>
     </div>
   )

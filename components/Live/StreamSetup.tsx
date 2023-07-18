@@ -6,6 +6,8 @@ import { toSubsocialAddress } from '@subsocial/utils'
 import { useGetAccountSpaces } from '@/Hooks'
 import { useCreateStream } from '@livepeer/react';
 import { usePinToIpfs,useCreateLiveStream  } from '@/Hooks';
+import {GoLinkExternal} from 'react-icons/go'
+
 export default function StreamSetup() {
     const [streamTitle, setstreamTitle] = useState("")
     const [startingTime, setstartingTime] = useState("")
@@ -19,7 +21,13 @@ export default function StreamSetup() {
     const [streamData, setstreamData] = useState()
     const {uploadToIpfs} = usePinToIpfs()
 
-     const {createPost, isCreatingPost, isCreatingPostError, isPostCreated} = useCreateLiveStream()
+
+    function openURLInNewTab(url : any) {
+      let newTab = window.open(url, '_blank');
+      newTab?.focus();
+    }
+
+     const {createPost, isCreatingPost, isCreatingPostError, isPostCreated, currentStatus, postId} = useCreateLiveStream()
     /*
     =========================
     GET SPACES OWNED BY USER
@@ -144,6 +152,7 @@ SELECT A PLACEHOLDER
             {isShowStreamInfo ? (
               <div className='my-5 flex flex-col justify-center items-center'>
               <h1 className='text-2xl font-semibold text-center'> 🎯 Stream Settings </h1>
+                
                 <div className='flex gap-2 my-2'>  
                    <h2 className=' text-gray-300 font-thin'>RTMP ingest URL :</h2> 
                     <h2 className=' text-gray-300 font-mono'>rtmp://rtmp.livepeer.com/live</h2>
@@ -156,7 +165,7 @@ SELECT A PLACEHOLDER
               </div>
             ) : (
               <>
-              <h1>{currentSpace}</h1>
+            
           <div className='  flex-1 flex flex-col gap-2  mb-3'>
             <h3 className='uppercase text-gray-300 font-serif'>title</h3>
             <input    value={streamTitle} onChange={e => setstreamTitle(e.target.value)}  placeholder="Title that  describes Your stream"  
@@ -175,7 +184,9 @@ SELECT A PLACEHOLDER
             })}
         </select>
       
-
+        {data?.spaces?.length  < 1 && <div className='flex gap-3'> <h4 className='text-xs text-red-800'>⚠️ No space was found </h4> 
+            <div className='flex gap-2'> <h4 className='text-xs'>create new space</h4> <GoLinkExternal className='cursor-pointer text-blue-600' onClick={() => openURLInNewTab("https://polkaverse.com/spaces/new")} /> </div>
+             </div>}
           </div>
 
           <div className='  flex-1 flex flex-col gap-2  mb-3'>

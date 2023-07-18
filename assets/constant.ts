@@ -68,15 +68,16 @@ export const mobileNavigations = [
     title : "Subscriptions",
     to : "/subscribtions",
     icon : ExploreOutline
-  },*/
+  },
 
 {
     title : "Explore",
     to : "/explore",
     icon : Discover
-  },
+  },*/
 ]
 
+ export const APP_ID = "Frentube_3"
 export const socialIcons = [
     {
         title : "Twitter",

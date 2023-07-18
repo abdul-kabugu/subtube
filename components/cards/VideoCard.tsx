@@ -53,7 +53,7 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
            </div>
 
            <div>
-           <Link href={`/watch/${video?.id}`}> <p className='truncate  font-semibold text-gray-400 '>{video && shortenTxt(video?.title, 28)}</p></Link>
+           <Link href={`/watch/${video?.id}`}> <p className='truncate  font-semibold text-gray-400/90 '>{video && shortenTxt(video?.title, 28)}</p></Link>
            <div className='flex gap-3   text-sm'>
            <div className='flex gap-1 text-gray-500'><p className=''>{video?.upvotesCount}</p> <p className='  font-semibold '>like</p></div>
              <p className=' text-gray-500'>{duration.humanize().replace("a ", "")} ago</p>

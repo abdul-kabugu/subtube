@@ -1,6 +1,7 @@
 // @ts-nocheck
 
 import { useGetAccountSpaces } from '@/Hooks'
+import AuthErrir from '@/components/errors/AuthError'
 import { SelectFile, UploadForm } from '@/components/upload'
 import { toSubsocialAddress } from '@subsocial/utils'
 import Head from 'next/head'
@@ -23,19 +24,24 @@ const [userDEtails, setuserDEtails] = useState()
          if(CONNECTED_USER_DETAILS?.address){
           setisConnected(true)
          }
-     }, [])
+     }, [userDEtails])
      
      const subsocialAccount = toSubsocialAddress(userDEtails?.address)
      const {data, loading, error} = useGetAccountSpaces(subsocialAccount)
       console.log("the spaces data", data)
    
+        if(! userDEtails) {
+          return(
+            <AuthErrir  />
+          )
+        }
   return (
    <>
      <Head>
      <title>Upload </title>
      </Head>
 
-      <div className='h-screen '>
+      <div className='min-h-screen bg-black '>
         {file? (
           <UploadForm file = {file} setfile = {setfile} selectedThumbnail = {selectedTumbnail} setSelectedThumbnail = {setselectedTumbnail}
             videoTitle = {videoTitle} setVideoTitle = {setvideoTitle} videoCaption = {videoCaption} setVideoCaption = {setvideoCaption}

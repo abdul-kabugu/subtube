@@ -7,7 +7,7 @@ export default function index() {
     <Head>
       <title>Live</title>
     </Head>
-    <div>
+    <div className='min-h-screen bg-black'>
        <Home  />
     </div>
     </>

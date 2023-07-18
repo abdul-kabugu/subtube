@@ -32,7 +32,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <LivepeerConfig client={Livepeer_client} theme={livepeerTheme}>
       <SubsocialContextProvider>
     <div className='w-full'>
-      <NextNProgress color='#9d33ad' height={5} options={{ showSpinner: false }} />
+      <NextNProgress color='#e679f7' height={5} options={{ showSpinner: false }} />
       <BetaAlert />
        <TopNav  />
       

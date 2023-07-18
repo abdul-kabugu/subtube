@@ -196,8 +196,8 @@ const {shortenTxt} = useTruncateText()
       {currentUserProfile ?(
         <ConnectedUser  />
       ): 
-       <div className='flex gap-2 items-center cursor-pointer bg-fuchsia-700 xs:py-0.5 md:py-1.5 xs:px-2 md:px-4 rounded-xl ' onClick={handleConnectWallet}>
-        <CiWallet   className='text-white' size={23} />
+       <div className='flex gap-2 items-center cursor-pointer bg-fuchsia-500/70 xs:py-0.5 md:py-1.5 xs:px-2 md:px-4 rounded-xl ' onClick={handleConnectWallet}>
+        <CiWallet   className='text-white w-5 h-5 rounded-xl'  />
          <button className='  text-white md:font-semibold capitalize' >Sign In</button>
       </div>
          
@@ -229,7 +229,7 @@ const {shortenTxt} = useTruncateText()
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-black border border-fuchsia-900/40 p-4 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-black border border-fuchsia-900/50 shadow-2xl shadow-gray-600 p-4 text-left align-middle  transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg  leading-6 font-thin "

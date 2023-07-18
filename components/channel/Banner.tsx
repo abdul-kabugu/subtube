@@ -47,7 +47,7 @@ export default function Banner({data, loading, error}) {
           </div>
 
         </div>
-        <button className='md:font-semibold bg-violet-800 text-white xs:py-1 md:py-1.5 rounded-lg xs:px-2 md:px-3'>Subscribe</button>
+        <button className='md:font-semibold bg-fuchsia-600 text-white xs:py-1 md:py-1.5 rounded-lg xs:px-2 md:px-3'>Subscribe</button>
 
       </div>
     </div>

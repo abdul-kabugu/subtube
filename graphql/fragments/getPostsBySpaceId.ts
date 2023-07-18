@@ -4,6 +4,7 @@ export const GET_POSTS_BY_SPACE_ID = gql`
 query GetPostBySpace($where: PostWhereInput) {
     posts (where: $where) {
       content,
+      experimental
       id
       image
       body

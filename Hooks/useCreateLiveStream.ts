@@ -14,6 +14,10 @@ const useCreateLiveStream = () => {
   const [currentUserInfo, setcurrentUserInfo] = useState()
   const [isPostCreated, setisPostCreated] = useState(false)
 const [isApiConnected, setisApiConnected] = useState(true)
+const [currentStatus, setcurrentStatus] = useState()
+const [isFinalized, setisFinalized] = useState(false)
+const [postId, setpostId] = useState()
+
 const {uploadToIpfs} = usePinToIpfs()
 useEffect(() => {
     const CONNECTED_USER_DETAILS = JSON.parse(localStorage.getItem('poltubeUserDetails'));
@@ -44,9 +48,32 @@ useEffect(() => {
         { RegularPost: null }, // Creates a regular post.
         IpfsContent(postCid?.path)
       )
-      await polkadotjs.signAndSendTx(postTx, currentUserInfo?.address)
-      console.log("the post transactions", postTx)
-      setisPostCreated(true)
+      await polkadotjs.signAndSendTx(postTx, currentUserInfo?.address, (result) => {
+        const { status } = result
+
+        if (status.isFinalized ) {
+          const blockHash = status.isFinalized ? status.asFinalized : status.asInBlock
+          setisPostCreated(true)
+          console.log('Tx finalized. Block hash', blockHash.toString())
+          
+          const newIds = getNewIdsFromEvent(result) // get first argument from array.
+          if (newIds.length > 0) {
+            console.log(`New Item Id: ${newIds[0]}`)
+            setpostId(`${newIds[0]}`)
+          }
+        
+        } else if (result.isError) {
+          console.log(JSON.stringify(result))
+          setisCreatingPostError(true)
+          seterrorMessage(JSON.stringify(result))
+        } else {
+          console.log('⏱ Current tx status:', status.type)
+          setcurrentStatus(status.type)
+          
+        }
+      })
+    
+      
       setisCreatingPost(false)
     }
 
@@ -55,7 +82,7 @@ useEffect(() => {
 
 return{
     createPost, isCreatingPost, isCreatingPostError,errorMessage,
-    isPostCreated
+    isPostCreated, currentStatus, postId
 }
 }
 export default useCreateLiveStream

@@ -21,10 +21,11 @@ import useTruncateText from "./useTruncateText";
 import { useUpdateProfile } from "./useUpdateProfile";
 import useCreateLiveStream from "./useCreateLiveStream";
 import useDiscoverStreams from "./useDiscoverStreams";
+import { useDiscoverFromApp } from "./useDiscoverFromApp";
 export {
     useAuthenticate, useTruncateText, useCreateSpace, useCreatePost, useDiscoverVideos,
     useGetVideoById, useGetPostComments, useCreateComment, useReactions, UseSubscribe,
     useGetUserData, useAmplify, useCreateProfile, useDonate, usePinToIpfs, useGetLatestVidoes,
     useGetPopulaVideos, useGetInterestedVideos, useUpdateProfile, useGetAccountSpaces, useCreateLiveStream,
-    useDiscoverStreams
+    useDiscoverStreams, useDiscoverFromApp
 }

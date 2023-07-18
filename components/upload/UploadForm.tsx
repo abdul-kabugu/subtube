@@ -9,7 +9,7 @@ import { IPFS_GATEWAY } from '@/assets/constant'
 import ThmbnailsLoader from '../Loder/ThmbnailsLoader'
 import { toSubsocialAddress } from '@subsocial/utils'
 import {useCreateAsset} from '@livepeer/react'
-
+import {GoLinkExternal} from 'react-icons/go'
 
 export default function UploadForm({file,setfile ,  selectedThumbnail, setSelectedThumbnail,videoTitle, setVideoTitle , videoCaption , setVideoCaption ,   videoTags, setVideoTags, userSpaces }) {
   const { isReady, api, network, changeNetwork } = useContext(SubsocialContext)
@@ -39,7 +39,12 @@ export default function UploadForm({file,setfile ,  selectedThumbnail, setSelect
         }
      }
     
+// open external link 
 
+function openURLInNewTab(url : any) {
+  let newTab = window.open(url, '_blank');
+  newTab?.focus();
+}
         //Remove  tag
    const removeTag = (index) => {
     setVideoTags([...videoTags.filter(tags => videoTags.indexOf(tags) !== index)])
@@ -231,7 +236,12 @@ export default function UploadForm({file,setfile ,  selectedThumbnail, setSelect
                 <option value={space?.id} key={i} className='bg-black text-gray-400'>{space.name}</option>
               )
             })}
-        </select>
+        </select> 
+        <div>
+           {userSpaces?.spaces?.length  < 1 && <div className='flex gap-3'> <h4 className='text-xs text-red-800'>⚠️ No space was found </h4> 
+            <div className='flex gap-2'> <h4 className='text-xs'>create new space</h4> <GoLinkExternal className='cursor-pointer text-blue-600' onClick={() => openURLInNewTab("https://polkaverse.com/spaces/new")} /> </div>
+             </div>}
+        </div>
           </div>
 
           <div  className='flex-1  flex flex-col gap-2 border border-gray-700 rounded-lg mb-3 min-h-32 py-2 px-3'>

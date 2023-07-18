@@ -7,7 +7,7 @@ export default function goLive() {
     <Head>
      <title>Go Live</title>
      </Head>
-    <div>
+    <div className='max-h-screen bg-black'>
       <LiveSetup  />
     </div>
     </>

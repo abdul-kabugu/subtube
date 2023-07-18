@@ -18,7 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
   </Head>
       <main>
-        <div className="w-full bg-inherit">
+        <div className="w-full bg-black">
          <HomeView  />
         </div>
       </main>

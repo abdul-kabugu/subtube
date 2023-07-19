@@ -10,6 +10,12 @@ export default function Home() {
     const {posts, isPostsLoading, isPostsError} = useDiscoverStreams()
      console.log("streams posts", posts)
      const filteredPosts = posts?.posts?.filter(post => post.hasOwnProperty("image") && post.image !== null)
+
+      if(filteredPosts?.length < 1) {
+        return(
+          <h>No streams at the moment</h>
+        )
+      }
      if(isPostsError) {
         return(
           <Error   /> 

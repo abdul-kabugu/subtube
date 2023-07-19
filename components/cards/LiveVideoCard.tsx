@@ -4,22 +4,15 @@ import { IPFS_GATEWAY, IPFS_GATEWAY_TWO } from '@/assets/constant';
 import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Identicon from 'identicon.js';
 import { useTruncateText } from '@/Hooks';
 import {RxDotsVertical} from 'react-icons/rx'
 import { Tooltip } from 'react-tippy';
 export default function LiveVideoCard({video}) {
   const [isDisplayDots, setIsDisplayDots] = useState(false)
-  const [currentTime, setCurrentTime] = useState(new Date());
-  const currentDate = new Date();
-  const videoCreatedAt = new Date(video?.createdAtTime);
+  const [timeLeft, setTimeLeft] = useState('');
 const {shortenTxt} = useTruncateText()
-  const diffInMilliseconds = currentDate - videoCreatedAt;
-const diffInHours = diffInMilliseconds / (60 * 60 * 1000);
-const duration = moment.duration(diffInHours, 'hours');
-// xs:w-[100vw] md:w-[300px]  rounded-lg  flex-grow flex-shrink mb-2 py-1 px-1 md:max-w-[330px] relative border border-fuchsia-900 
-// w-full xs:h-[220px] sm:h-[290px] md:h-[170px]
 const toggleIsDisplayDots = () => {
   isDisplayDots ?  setIsDisplayDots(false) : setIsDisplayDots(true)
 } 
@@ -30,6 +23,37 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
   format: 'svg' // choose the format of the avatar, such as png or svg
 }).toString()
  
+  const STARTING_TIME = video?.experimental?.startingAt
+  const ENDING_TIME = video?.experimental?.endingAt
+
+useEffect(() => {
+  const startDateTime = new Date(STARTING_TIME).getTime();
+  const endDateTime = new Date(ENDING_TIME).getTime();
+
+  const timer = setInterval(() => {
+    const currentTime = new Date().getTime();
+    const remainingTime = startDateTime - currentTime;
+
+    if (remainingTime <= 0) {
+      clearInterval(timer);
+      setTimeLeft('🔴 Live');
+      return;
+    }
+
+    const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+    setTimeLeft(`Starts in ${hours}h ${minutes}m ${seconds}s`);
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, [video]);
+
+const isStreamOver = new Date().getTime() > ENDING_TIME;
+console.log( "stream status", timeLeft)
+
+console.log("is stream over", isStreamOver)
   return (
 
     <div className='flex flex-col w-full border-t-0 sm:max-w-sm rounded-xl h-60 border border-fuchsia-900/50 relative my-2 p-1 font-mono' onMouseEnter={() => setIsDisplayDots(true)} onMouseLeave={() => setIsDisplayDots(false)}>
@@ -54,11 +78,10 @@ const avatar = new Identicon(video?.createdByAccount?.id || "hellow  world  this
 
            <div>
            <Link href={`/watch/${video?.id}`}> <p className='truncate  font-semibold text-gray-400 '>{video && shortenTxt(video?.title, 28)}</p></Link>
-           <div className='flex gap-3   text-sm'>
-           <div className='flex gap-1 text-gray-500'><p className=''>{video?.upvotesCount}</p> <p className='  font-semibold '>like</p></div>
-             <p className=' text-gray-500'>{duration.humanize().replace("a ", "")} ago</p>
-           </div>
-          
+           
+            <div>
+               <p>{timeLeft}</p>
+            </div>
            </div>
            </div>
             {/*isDisplayDots  && (

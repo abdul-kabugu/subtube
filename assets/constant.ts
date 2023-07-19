@@ -78,6 +78,7 @@ export const mobileNavigations = [
 ]
 
  export const APP_ID = "Frentube_3"
+ export const LIVE_ID = "frentube_Live_2"
 export const socialIcons = [
     {
         title : "Twitter",

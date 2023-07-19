@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext } from "react";
 import polkadotjs from "../subsocial/wallets/polkadotjs";
 import { SubsocialContext } from '../subsocial/provider'
-import { SPACE_ID } from "../assets/constant";
+import { LIVE_ID, SPACE_ID } from "../assets/constant";
 import {IpfsContent, OptionBool} from '@subsocial/api/substrate/wrappers'
 import { usePinToIpfs } from "./usePinToIpfs";
 
@@ -35,7 +35,7 @@ useEffect(() => {
                 image: cover,
                 tags: ["live"],
                  body: video,
-                 appId : "frentube_Live_1",
+                 appId :  LIVE_ID,
                  startingAt : startingTime,
                  endingAt :  endingTime,
             })

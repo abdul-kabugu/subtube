@@ -19,7 +19,7 @@ export default function TopNav() {
   }
   return (
     <div className='flex justify-between h-[60px] items-center bg-black w-full  max-w-screen px-3 py-2 z-10  sticky top-0'>
-      <div className='flex gap-4 items-center text-gray-500'>
+      <div className='flex gap-4 items-center text-gray-400'>
         <Link href={"/"}>
           <img
             src="https://cdn.discordapp.com/attachments/1073616425203273778/1110495007363829810/A_letter_tech_logo.png"

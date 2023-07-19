@@ -22,7 +22,7 @@ export default function FullVideoCard({video}) {
     );
   };
   return (
-    <div className='flex w-[96vw] md:w-[95vw] lg:w-[94vw] xl:w-[73vw] border-t-0 z-0  rounded-xl  border border-fuchsia-900/50 justify-center cursor-pointer self-center'>
+    <div className='flex w-[96vw] md:w-[95vw] lg:w-[94vw] xl:w-[73vw] border-t-0 z-0  rounded-xl mt-0  border border-fuchsia-900/50 justify-center cursor-pointer self-center'>
   
 
               {/*<Player 

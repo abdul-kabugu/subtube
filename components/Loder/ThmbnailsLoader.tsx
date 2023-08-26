@@ -7,7 +7,7 @@ export default function ThmbnailsLoader() {
         {fakeArrayTwo.map((item, i) =>  {
             return(
                 <div className="flex flex-col  animate-pulse  h-full justify-center flex-grow-2 flex-shrink" key={i}>
-                                <div className=" w-[120px] h-[70px] border border-gray-300  bg-gray-300  rounded-lg mb-1 ">
+                                <div className=" w-[120px] h-[70px] border border-gray-700  bg-gray-700  rounded-lg mb-1 ">
                                     </div>
 
                  </div>

@@ -23,10 +23,10 @@ export default function ChannelQuery({data, loading, error}) {
             return(
               <Link href={`/channel/${account.id}`} key={i}>
               <div className='flex items-center justify-between mb-2'>
-                 <h2 className='font-semibold capitalize text-black/70'>{account?.profileSpace?.name}</h2>
+                 <h2 className='font-semibold capitalize text-gray-400'>{account?.profileSpace?.name}</h2>
                  <div className='flex items-center'>
                   <CiUser className='text-gray-600' size={14}  />
-                  <p className='text-[12px] text-gray-600'>{account?.profileSpace?.followersCount}</p>
+                  <p className='text-[12px] text-gray-500'>{account?.profileSpace?.followersCount}</p>
                   </div>
               </div>
               </Link>

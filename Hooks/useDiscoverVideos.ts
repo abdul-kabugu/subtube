@@ -14,7 +14,8 @@ import { GET_POSTS_BY_SPACE_ID } from '../graphql/fragments/getPostsBySpaceId'
           "id_eq": SPACE_ID
         }
       }
-    }
+    },
+    pollInterval: 500,
    })
 
    return{

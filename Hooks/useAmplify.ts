@@ -6,7 +6,7 @@ import { SubsocialContext } from '../subsocial/provider'
 import { SPACE_ID } from "../assets/constant";
 import {IpfsContent, OptionBool} from '@subsocial/api/substrate/wrappers'
 import { usePinToIpfs } from "./usePinToIpfs";
-
+import { APP_ID } from "../assets/constant";
  export const useAmplify = () =>  {
    const [isAmplifying, setisAmplifying] = useState(false)
    const {api, isReady} = useContext(SubsocialContext)
@@ -25,7 +25,7 @@ import { usePinToIpfs } from "./usePinToIpfs";
     body: video?.postById?.body,
     image : video?.postById?.image,
     title : video?.postById?.title,
-     appId : "poltube_v3"
+     appId : APP_ID
   })
 
   const sharedPostCid = await uploadToIpfs(sharedPostContent)

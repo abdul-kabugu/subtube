@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext } from "react";
 import polkadotjs from "../subsocial/wallets/polkadotjs";
 import { SubsocialContext } from '../subsocial/provider'
-import { SPACE_ID } from "../assets/constant";
+import { APP_ID, SPACE_ID } from "../assets/constant";
 import {IpfsContent, OptionBool} from '@subsocial/api/substrate/wrappers'
 import { usePinToIpfs } from "./usePinToIpfs";
 
@@ -20,7 +20,7 @@ useEffect(() => {
       setcurrentUserInfo(CONNECTED_USER_DETAILS)
 }, [])
 
-    const createPost = async (title, cover,  tags, video) =>  {
+    const createPost = async (title, cover,  tags, video, selectedSpace) =>  {
         if(!isReady){
             setisApiConnected(false)
         }
@@ -30,20 +30,15 @@ useEffect(() => {
                 title: title,
                 image: cover,
                 tags: [tags],
-                 body: video
+                 body: video,
+                 appId : APP_ID
             })
        
-      /* const postCid = await api!.ipfs.saveContent({
-            title: title,
-            image: cover,
-            tags: [tags],
-             body: video
-          })*/
          const postCid  = await uploadToIpfs(postContents)
           console.log("the data i'm posting", postCid)
           const substrateApi = await api!.blockchain.api
     const postTx =  substrateApi.tx.posts.createPost(
-        SPACE_ID,
+        selectedSpace,
         { RegularPost: null }, // Creates a regular post.
         IpfsContent(postCid?.path)
       )

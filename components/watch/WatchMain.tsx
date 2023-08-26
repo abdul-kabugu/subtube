@@ -63,15 +63,16 @@ export default function WatchMain({vidId}) {
       )
      }
 
-     
+    //  flex  gap-2    md:px-0 
      const avatarUrl = data?.postById?.createdByAccount.profileSpace?.image
     console.log("the avatar url", avatarUrl)
   return (
-    <div className='flex  gap-2    md:px-0 '>
-      <div className=' w-full'>
+    <div className='flex min-h-screen text-gray-400 flex-col bg-inherit font-mono justify-center items-center w-full  lg:px-2'>
+      <div className='flex gap-3 justify-center'>
+   <div>
       <FullVideoCard video={data}  />
        <div className='mt-2 xs:px-2 md:px-3'>
-         <h1 className='leading-10 text-xl capitalize text-black/80 font-semibold'>{data?.postById?.title}</h1>
+         <h1 className='leading-10 xs:text-sm lg:text-lg capitalize text-gray-400 font-semibold'>{data?.postById?.title}</h1>
 
           <div className='mt-1 flex justify-between  items-center'>
             <div className='flex gap-2 items-center '>
@@ -83,13 +84,13 @@ export default function WatchMain({vidId}) {
                  )}
               </Link>
                 <div>
-                <Link href={`/channel/${data?.postById?.createdByAccount?.id}`}> <h1 className='xs:text-sm md:text-lg lg:text-xl  text-black/90 font-semibold  '>{ data?.postById?.createdByAccount.profileSpace?.name ||  data?.postById?.createdByAccount && shortenTxt(data?.postById?.createdByAccount?.id, 10)}</h1> </Link>
+                <Link href={`/channel/${data?.postById?.createdByAccount?.id}`}> <h1 className='xs:text-sm md:text-lg lg:text-xl  text-gray-600  font-mono '>{ data?.postById?.createdByAccount.profileSpace?.name ||  data?.postById?.createdByAccount && shortenTxt(data?.postById?.createdByAccount?.id, 10)}</h1> </Link>
 
-                  <h3 className='text-black/75 xs:text-xs'>{data?.postById?.createdByAccount?.followersCount} Subscribers</h3>
+                  <h3 className='text-gray-500 xs:text-xs font-mono'>{data?.postById?.createdByAccount?.followersCount} Subscribers</h3>
                 </div>
               </div>
 
-               <button className=' md:font-semibold md:text-lg bg-violet-800 text-white xs:px-2 xs:py-1 md:px-3 md:py-1.5 rounded-lg' onClick={() => subscribe()}>{isSubscriber ? "Subscribed" : "Subscribe"}</button>
+               <button className='hidden md:font-semibold md:text-lg bg-fuchsia-600 text-white xs:px-2 xs:py-1 md:px-3 md:py-1.5 rounded-lg' onClick={() => subscribe()}>{isSubscriber ? "Subscribed" : "Subscribe"}</button>
           </div>
 
            <FullVideoCardFooter video = {data}   />
@@ -98,5 +99,7 @@ export default function WatchMain({vidId}) {
       </div>
         <RelatedVideos   />
     </div>
+    </div>
+ 
   )
 }

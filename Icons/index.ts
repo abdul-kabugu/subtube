@@ -27,6 +27,10 @@ import MoonOutline from "./MoonOutline";
 import BulbOutline from "./BulbOutline";
 import RoadmapOutline from "./RoadmapOutline";
 import NewVideoOutline from "./NewVideoOutline";
+import LikeAlt from "./LikeAlt";
+import DislikeAlt from "./DislikeAlt";
+import AmplifyAlt from "./AmplifyAlt";
+import SendAlt from "./SendAlt";
 export {
   Verified,
   UploadOutline,
@@ -56,5 +60,9 @@ export {
   MoonOutline,
   BulbOutline,
   RoadmapOutline,
-  NewVideoOutline
+  NewVideoOutline,
+  LikeAlt,
+  DislikeAlt,
+  AmplifyAlt,
+  SendAlt
 };

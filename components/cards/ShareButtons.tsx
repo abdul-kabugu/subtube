@@ -21,7 +21,7 @@ export default function ShareButtons({postId}) {
         }
       }
   return (
-    <div>
+    <div className=''>
       <div className='flex gap-2'>
       <TwitterShareButton url={url} >
            <TwitterIcon  size={35} round={true} />
@@ -48,9 +48,9 @@ export default function ShareButtons({postId}) {
                 
       </div>
 
-       <div className='py-1.5 px-3 rounded-lg border border-gray-200 mt-3 flex  gap-5 items-center'>
+       <div className='py-1.5 px-3 rounded-lg  border border-gray-800 mt-3 flex  gap-5 items-center'>
         <p className='text-sm'>{url}</p>
-         <button className='bg-violet-700  capitalize px-2 rounded-lg text-white' onClick={() => copyToClipboard(url)}>{isUrlCopied ? "Copied" : "Copy"}</button>
+         <button className='bg-fuchsia-600  capitalize px-2 rounded-lg text-white' onClick={() => copyToClipboard(url)}>{isUrlCopied ? "Copied" : "Copy"}</button>
        </div>
     </div>
   )

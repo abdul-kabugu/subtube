@@ -21,12 +21,12 @@ export default function videoId({data, vidId, loading, error}) {
 {/* Open Graph */}
 <meta property="og:url" content={`/watch/${vidId}`} key="ogurl" />
 <meta property="og:image" content={`${IPFS_GATEWAY}${data?.postById?.body}`} key="ogimage" />
-<meta property="og:site_name" content={`Poltube -  Decentralized video shring platform`} key="ogsitename" />
+<meta property="og:site_name" content={`Frentube -  Decentralized video sharing Platform`} key="ogsitename" />
 <meta property="og:title" content={data?.postById?.title} key="ogtitle" />
 <meta property="og:description" content={data?.postById?.title} key="ogdesc" />
         </Head>
      
-    <div className='   max-w-full'>
+    <div className='   max-w-full max-h-screen bg-black/95'>
       <WatchMain  vidId={vidId} />
     </div>
     

@@ -29,7 +29,7 @@ console.log("formatted date", data); // outp
     )
   }
   return (
-    <div className='flex gap-2 flex-wrap'>
+    <div className='flex gap-2 flex-wrap items-center justify-center'>
       {data?.posts?.map((video, i) =>  {
 
         return(

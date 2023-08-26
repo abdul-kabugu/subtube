@@ -14,7 +14,8 @@ export const useGetAmplifiedVideos = (accountId) => {
         "title_isNull": false
   }
    
-        }
+        },
+        pollInterval: 500,
     })
 
     return{
